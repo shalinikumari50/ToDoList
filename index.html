@@ -1,25 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
     <style>
         body{
-            background-image: url("images/emma-matthews-digital-content-production-p6g6S_kXkFc-unsplash.jpg");
-            background-position: center;
-            height: 1000px;
-            background-size: cover;
-            background-repeat: no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 800px;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main::after{
+            content:'';
+            clear:both;
+            display:block;
+        }
+
+        .uppersection {
+            /* background-color:#36454F; */
+            background-image: linear-gradient(to right,lightgrey,grey);
+
+            height: 80px;
+            width: 100%;
+            position: fixed; 
             
         }
 
-    </style>
-</head>
-<body>
+
+       .loginsection{
+            float:right;
+            list-style: none;
+            display:flex;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        .loginsection li a{
+            margin-top: 15px;
+            padding:10px 15px;
+            float:right;
+            font-size:20px;      
+            font-weight:bold;
+            margin-right:15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color:grey;
+            background-color: white;
+            
+        }
+        .loginsection li a:hover{
+            background-color: lightskyblue;
+            color: white;
+            transition: 0.3s;
+        }
+
+
+        .middlesection{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            margin-left: 40px;
+            padding-top: 30px;
+            color: black;
+            font-size: 18px;
+            text-align: justify;
+        }
+        
+        h1 {
+            padding-top: 130px;
+            font-weight: bold;
+            color: black;
+        }
+        main .left{
+            width: 45vw;
+            float: left;
+        }
+        main img{
+            width: 40vw;
+            height: 40vh;
+            margin-top: 130px;
+
+            margin-left: 90px;
+
+            float: right;
+        }
+        #button {
+            box-shadow: 2px 4px 4px rgba(128, 128, 128, 0.438);
+            margin-top: 20px;
+            border-radius: 15px;
+
+            padding: 13px;
+            font-size: 25px;
+            background-color:rgb(59, 175, 247);
+            color:white;
+        }
+
+        #button a{
+            text-decoration: none;
+            color:white;
+        }
+
+
+        #button:hover{                               
+            background-color:rgb(37, 143, 209);
+            transition:0.3s;
+        }
+
+        .footer{
+            padding-top: 20px;
+            width: 100vw;
+            position: fixed;
+            bottom: 0px;
+            /* background-color: #36454F; */
+            background-image: linear-gradient(to right,lightgrey,grey);
+
+        }
+        .footerlist{
+            list-style-type: none;
+            text-align: center;
+            padding-left:20px;
+
+            /* padding-bottom :10px; */
+            color:white;
+        }
+        .footerlist li a{
+            text-decoration: none;
+            color:white;
+        }
+        .footerlist li a:hover{
+            color: lightskyblue;
+            transition: 0.5s;
+        }
 
     
+        @media(max-width: 800px){
+            body{
+                height: 1200px;
+            }
+
+            .middlesection{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                margin-left: 40px;
+                padding-top: 30px;
+                color: black;
+                font-size: 18px;
+                text-align: center;
+            }
+            main .left{
+                width: 95%;
+            }
+            main img{
+                width: 70%;
+                margin: 40px auto;
+            }
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="maincontainer">
+    <header class="uppersection">
+        <img src=>
+        <ul class="loginsection">
+
+
+            <li><a href="p/log_in.html">Login</a></li>
+            <li><a href="p/sign_up.html">Register</a></li>
+        </ul>
+    </header>
+
+    <main class="middlesection">
+        <div class="left">
+            <h1>Welcome To Checks Lists</h1>
+
+            <br>
+            <p>
+                It is a website build for users to make a note of things that they have to do in the given time period by
+                systematically planning all the things .
+                A place where easy interface and easy drag and drop options will let you plan things more faster and more
+                efficiently.
+            </p>
+
+
+            <button id="button">
+                <a href="p/sign_up.html">Get Started </a></button>
+            
+        </div>
+        <img src="images/Capture.png" alt="vector">
+    </main>
+    <footer class="footer">
+        <ul class="footerlist">
+            <li>Maintained by <a href="https://github.com/ShashankAgrawal003">@shashank</a> |
+                <a href="https://github.com/vanshika0307">@vanshika</a> |
+                <a href="https://github.com/shalinikumari50">@shalini</a></li>
+
+
+            <li><a href="#">
+                About
+            </a> </li>
+            <li><a href="#">
+                Privacy Policy
+            </a></li>
+
+            <li><a href="#">&copy Copyright 2020</a></li>
+
+        </ul>
+
+    </footer>
+    </div>
 </body>
+
+
 </html>
+
