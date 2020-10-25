@@ -125,14 +125,15 @@ a i{
 
 @media (max-width:768px){
     .sidebar{
-        width:100%;
-        text-align:center;
+        min-width:80px;
+        width:5%;
+        
+    }
+    .sidebar span{
+        display:none;
     }
     .navbar h1{
         display:none;
     }
-    .social{
-     width:100%;
-     text-align:center;
-    }
+   
 }
