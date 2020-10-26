@@ -5,30 +5,55 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 .box{
     margin: 10px 20px;
     width:80%;
-    border: 5px solid black;
+    border: 5px solid transparent;
     position: relative;
 }
-.showBox-btn i{
-    vertical-align: text-bottom;
-    font-size: 20px;
+.container h1{
+    /* color: rgb(161, 18, 161); */
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .clock{
     position:absolute;
     bottom:0;
     right:0;
+    color: lightseagreen;
 
 }
 .margin{
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .calendar{
     position:absolute;
     bottom:0;
     right:25px;
+    color: lightsalmon;
+}
+.button{
+    margin: 10px 20px;
+}
 
+/* .add:hover{
+    background-color: rgb(145, 22, 145);
+} */
+.vector{
+    text-align: center;
+    margin-top: 50px;
+    opacity: 0.8;
+}
+.vector img{
+    height: 260px;
+    width: 400px;
+}
+.vector p{
+    color: palevioletred;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Grandstander', cursive;
 }
 
 
