@@ -1,0 +1,89 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    margin:20px;
+    position: relative;
+}
+.background{
+    margin:20px;
+}
+p{
+    display: inline;
+}
+hr{
+    border:none;
+    background-color: lightskyblue;
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.icon{
+    display:inline-block;
+    position: absolute;
+    right:0px;
+     margin-right:5px;
+   
+}
+.tasks .delete{
+    color:grey;
+}
+.tasks .star{
+    color:grey;
+}
+.tasks .delete:hover{
+    color:#F40204;
+
+}
+.tasks .star:hover{
+    color:#FFD701;
+
+}
+.important{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.important .star{
+    color:#FFD701;
+}
+.important .delete{
+    color:grey;
+}
+.important .delete:hover{
+    color:#F40204;
+
+}
+.important h2{
+    display: inline;
+}
+
+.complete h2{
+    display: inline;
+    text-decoration: none;
+}
+.complete p{
+    display: inline;
+    text-decoration:line-through;
+    opacity: .8;
+}
+
+.complete .delete{
+    color:grey;
+}
+.complete .star{
+    color:grey;
+}
+.complete .delete:hover{
+    color:#F40204;
+
+}
+.complete .star:hover{
+    color:#FFD701;
+
+}
+summary{
+    outline: none;
+}

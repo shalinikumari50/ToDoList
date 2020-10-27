@@ -6,93 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <style>
-        .container{
-            margin:20px;
-            position: relative;
-        }
-        .background{
-            margin:20px;
-        }
-        .icon{
-            display:inline-block;
-            position: absolute;
-            right:0px;
-           margin-right:5px;
-           
-        }
-        .delete{
-            color:grey;
-        }
-        .star{
-            color:grey;
-        }
-        .delete:hover{
-            color:#F40204;
-
-        }
-        .star:hover{
-            color:#FFD701;
-
-        }
-    </style>
+    <link rel="stylesheet" href="../css/tasks.css">
 </head>
 
 <body>
     <div class="background">
     <h1>Tasks</h1>
     <div class="container">
-        
-        <hr>
+        <div class="tasks">
+            <hr>
         <input type="radio" value="button">
 
 
-        <span>hello</span>
-        <div class="icon">
-        <span class="material-icons delete">
-            delete
-        </span>
-        <span class="material-icons star">
-            grade
-            </span>
-        </div>
-        
-
-        <hr>
-        <input type="radio" value="button">
-
-
-        <span>I</span>
-        <div class="icon">
-        <span class="material-icons delete">
-            delete
-        </span>
-        <span class="material-icons star">
-            grade
-            </span>
-        </div>
-        
-
-        <hr>
-        <input type="radio" value="button">
-
-
-        <span>am </span>
-        <div class="icon">
-        <span class="material-icons delete">
-            delete
-        </span>
-        <span class="material-icons star">
-            grade
-            </span>
-        </div>
-        
-
-        <hr>
-        <input type="radio" value="button">
-
-
-        <span>shanky</span>
+        <p>hello</p>
         <div class="icon">
         <span class="material-icons delete">
             delete
@@ -102,16 +28,83 @@
             </span>
         </div>
         <hr>
+        <input type="radio" value="button">
+        <p>I</p>
+        <div class="icon">
+        <span class="material-icons delete">
+            delete
+        </span>
+        <span class="material-icons star">
+            grade
+            </span>
+        </div>
+        <hr>
+        <input type="radio" value="button">
+        <p>am</p>
+        <div class="icon">
+        <span class="material-icons delete">
+            delete
+        </span>
+        <span class="material-icons star">
+            grade
+            </span>
+        </div>
+        <hr>
+        <input type="radio" value="button">
+        <p>checklist</p>
+        <div class="icon">
+        <span class="material-icons delete">
+            delete
+        </span>
+        <span class="material-icons star">
+            grade
+            </span>
+        </div>
+        <hr>
+        </div>
         
+        
+        <div class="important">
+            <details>
+                <summary><h2>Important</h2></summary>
+                
+                <hr>
+                <input type="radio" value="button">
+                <p>hello</p>
+                <div class="icon">
+                <span class="material-icons delete">
+                    delete
+                </span>
+                <span class="material-icons star">
+                    grade
+                    </span>
+                </div>
+                <hr>
+
+            </details>
+            
+        </div>
+        <div class="complete">
+            <details>
+                <summary><h2>Completed</h2></summary>
+                <hr>
+                <input type="radio" value="button">
+                <p>shanky</p>
+                <div class="icon">
+                <span class="material-icons delete">
+                    delete
+                </span>
+                <span class="material-icons star">
+                    grade
+                    </span>
+                </div>
+                <hr>
+
+            </details>
+    
+        </div>
     </div>
-    <div class="important">
-        
-
-    </div>
-    <div class="complete">
-
-
-    </div>
+    
 </div>
 </body>
 
