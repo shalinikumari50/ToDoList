@@ -11,12 +11,9 @@
 .background{
     margin:20px;
 }
-p{
-    display: inline;
-}
 hr{
     border:none;
-    background-color: lightskyblue;
+    background-color: gainsboro;
     height: 1px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -58,11 +55,13 @@ hr{
 }
 .important h2{
     display: inline;
+    color: purple;
 }
 
 .complete h2{
     display: inline;
     text-decoration: none;
+    color: purple;
 }
 .complete p{
     display: inline;
@@ -86,4 +85,7 @@ hr{
 }
 summary{
     outline: none;
+}
+label{
+    margin-left: 10px;
 }
