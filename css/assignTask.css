@@ -4,4 +4,30 @@
     box-sizing:border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+h2{
+    margin-bottom:50px;
+}
+.inputbox{
+margin-left:25px;
 
+
+width:79%;
+
+}
+#asibtn{
+   
+    margin-top:20px;
+    float:right;
+    margin-left:480px;
+}
+#buttons{
+    display:flex;
+}
+.backbtn{
+    float:left;
+    margin-top:20px;
+    margin-right:200px;
+    margin-left:25px;
+   font-size:18px;
+   padding-top:10px;
+}
