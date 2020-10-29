@@ -71,6 +71,7 @@
 }
 
 
+
 .text p{
     text-align:justify;
     padding:20px;
@@ -174,7 +175,7 @@ a i{
          float:right;
          transition:0.7s;
      }
- 
+    
    
     .navbar h1{
         display:none;

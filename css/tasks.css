@@ -3,7 +3,7 @@
     margin:0;
     box-sizing:border-box;
     font-family: Arial, Helvetica, sans-serif;
-}
+} 
 .container{
     margin:20px;
     position: relative;
@@ -62,6 +62,13 @@ hr{
     display: inline;
     text-decoration: none;
     color: purple;
+    margin-bottom:15px;
+}
+.complete h3{
+    display: inline;
+    text-decoration: none;
+    color: purple;
+    margin-bottom:15px;
 }
 .complete p{
     display: inline;
@@ -86,6 +93,12 @@ hr{
 summary{
     outline: none;
 }
-label{
+.container label{
     margin-left: 10px;
+}
+.important .button{
+    margin-top:15px;
+}
+.complete .button{
+    margin-top:15px;
 }
