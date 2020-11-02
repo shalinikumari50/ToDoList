@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="../JS/task.js"></script>
     <style>
         #home {
             border-left: 10px solid lightgreen;
@@ -25,7 +26,7 @@
     </style>
 </head>
 
-<body>
+<body id="main">
     <div class="Mynavbar">
         <img src="../images/logo-removebg-preview.png" height="60px" width="90px" alt="logo">
     </div>
@@ -43,7 +44,7 @@
             <div class="input-group">
 
                 <textarea class="form-control" aria-label="With textarea"
-                    placeholder="Write your tasks here........"></textarea>
+                    placeholder="Write your tasks here........" id="data"></textarea>
             </div>
             <div class="margin"></div>
             <div class="clock">
@@ -53,12 +54,15 @@
                 <i class="material-icons event">event</i>
             </div>
         </div>
+        
         <div class="button">
-            <button type="button" class="btn btn-primary add">Add</button>
+            <button type="button" class="btn btn-primary add" onclick=addTask()>Add</button>
             <button type="button" class="btn btn-link cancel">Cancel</button>
-
         </div>
-       <a href="assignTask.html" class="badge badge-dark Assignlink">Assign Task</a>
+        <a href="assignTask.html" class="badge badge-dark Assignlink">Assign Task</a>
+
+    
+       
         <div class="vector">
             <img src="../images/vector2.jpg" class="img-fluid" alt="Responsive image">
             <p>Organize Your work with CheckList; start with adding task.</p>
@@ -66,7 +70,7 @@
         
         <!-- ................. -->
     </div>
-    
+   
     <div class="sidebar" id="side">
         <ul>
             <li><a href="#" id="home"><i class="fa fa-home"></i><span>Home</span></a></li>
@@ -77,6 +81,10 @@
         </ul>
         
     </div>
+    
+    
+
+
 </body>
 
 </html>

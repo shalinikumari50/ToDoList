@@ -243,6 +243,21 @@ a i{
     display:inline;
 }
 
+.list  .delete{
+    color:grey;
+}
+.list .star{
+    color:grey;
+}
+.list .delete:hover{
+    color:#F40204;
+
+}
+.list .star:hover{
+    color:#FFD701;
+
+}
+
 @media (max-width:768px){
     .sidebar{
         min-width:70px;
@@ -298,3 +313,5 @@ a i{
     }
    
 }
+
+

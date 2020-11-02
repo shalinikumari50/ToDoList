@@ -57,9 +57,9 @@
 }
 
 .Assignlink{
-font-size:18px;
-margin-top:15px;
+margin-top:25px;
 margin-right:185px;
-float:right;
+margin-left: 20px;
+/* float:right; */
 padding:5px;
 }

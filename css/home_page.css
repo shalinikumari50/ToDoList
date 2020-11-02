@@ -12,7 +12,6 @@
     position: fixed;
     top:0;
     
-    
    display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +99,6 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 15px 25px;
     transition: 0.4s;
-    
 }
 
 a i{
@@ -180,5 +178,13 @@ a i{
     .navbar h1{
         display:none;
     }
-   
+    /* .js-is-hidden{
+        max-width: 70px;
+        min-width:75px;
+        width:2%;
+    }
+    .js-is-hidden span{
+        display: none;
+    }
+    */
 }
