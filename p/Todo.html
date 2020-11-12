@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TODO List</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='style.css'> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="../css/home_page.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <style>
+      
+        .star_rate{
+    pointer-events:none;
+}
+.completed{
+    text-decoration: line-through;
+    opacity:0.5;
+}
+.completed input{
+    text-decoration: line-through;
+}
+
+#calendarIcon{
+    color:orange;
+}
+/* .completed .item .checkbox{
+     
+}   */
+    </style>
+</head>
+<body>
+    <div class="Mynavbar">
+        <img src="../images/logo-removebg-preview.png" height="60px" width="90px" alt="logo">
+    </div>
+    <input type="checkbox" name="" id="chk">
+    <label for="chk" class="show-btn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <label for="chk" class="hide-btn">
+        <i class="fa fa-bars"></i>
+    </label>
+
+
+    <!-- ---------Navbar finish----------- -->
+    <div class="content">
+    <h1><span class="title">Todo</span>List</h1>
+    <div class="input-div box">
+        <div class="input-group">
+            <input type="text" class="input" placeholder="What Do You Want to Do...">
+            <!-- <textarea class="form-control input" aria-label="With textarea"
+                placeholder="Write your tasks here........" id="data"></textarea> -->
+        </div>
+        <div class="margin"></div>
+        <div class="clock">
+            
+            <input type="time" value="16:00" id="">
+        </div>
+        <div class="calendar">
+            <!-- function myFunction() {
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "date");
+                x.setAttribute("value", "2014-02-09");
+                document.body.appendChild(x);
+              } -->
+              <input type="date" value="2020-11-12" id="calendarIcon">
+            <!-- <i class="material-icons event">event</i> -->
+        </div>
+    </div>
+    <div class="button">
+        <button type="button" class="btn btn-primary add">Add</button>
+        <button type="button" class="btn btn-link cancel">Cancel</button>
+    </div>
+    <!-- <div class="inputDiv">
+    	   <input type="text" class="input" placeholder="What Do You Want to Do...">
+    	   <button class="add"><i class="fas fa-plus"></i></button>
+    </div> -->
+    <div class="secondTab">
+    <div class="container">
+
+    </div>
+
+
+    <!--  completed -->
+    
+    <h2>Completed</h2>
+    <div class="completed">
+      
+
+    </div>
+    <!-- important
+    <h2>Important</h2>
+    <div class="important">
+
+    </div> -->
+</div>
+</div>
+<!-- ------sidebar started------- -->
+    <div class="sidebar" id="side">
+        <ul>
+            <li><a href="home_page.html" id="home"><i class="fa fa-home"></i><span>Home</span></a></li>
+            <li><a href="task.html" id="tasks"><i class="fa fa-check-circle"></i><span>Tasks</span></a></li>
+            <!-- <li><a href="Inbox.html" id="inbox"><i class="fa fa-bell"></i><span>Inbox</span></a></li> -->
+            <li><a href="#" id="goals"><i class="fa fa-tasks"></i><span>Goals</span></a></li>
+            <li><a href="personal.html" id="personal"><i class="fa fa-user"></i><span>Personal</span></a></li>
+        </ul>
+
+    </div>
+
+
+
+
+
+    <script src='../JS/Todo.js'></script>
+</body>
+</html>
