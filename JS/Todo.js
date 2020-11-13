@@ -17,9 +17,17 @@ if(window.localStorage.getItem("completedArray") == undefined){
      
      window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
 }
+if(window.localStorage.getItem("starArray") == undefined){
+    var starArray = [];
+    
+    window.localStorage.setItem("starArray", JSON.stringify(starArray));
+}
 
 var todosEX = window.localStorage.getItem("todos");
 var todos = JSON.parse(todosEX);
+
+var starArrayEX = window.localStorage.getItem("starArray");
+var starArray = JSON.parse(starArrayEX);
 
 var completedEX = window.localStorage.getItem("completedArray");
 var completedArray = JSON.parse(completedEX);
@@ -53,7 +61,8 @@ class item{
 
         
         var star = document.createElement('button');
-    	star.classList.add('star');
+        star.classList.add('star');
+        
         star.innerHTML = '<i class="material-icons star_rate">star_rate</i>';
         // change function to mark important
     	star.addEventListener('click', () => this.star(star, name, arrayName));
@@ -105,9 +114,14 @@ class item{
     }
 
     star(star, name, arrayName){
+        let index = todos.indexOf(name);
         if(star.innerHTML === '<i class="material-icons star_rate">star_rate</i>'){
+            starArray[index]=1;
+            window.localStorage.setItem("starArray", JSON.stringify(starArray));
        star.innerHTML = '<i class="material-icons star_rate" style="color:yellow;">star_rate</i>';}
        else{
+           starArray[index]=0;
+           window.localStorage.setItem("starArray", JSON.stringify(starArray));
            star.innerHTML = '<i class="material-icons star_rate">star_rate</i>';
        }
       
@@ -123,7 +137,10 @@ class item{
             console.log(index);
             console.log(name);
             todos.splice(index, 1);
+            starArray.splice(index,1);
+
             window.localStorage.setItem("todos", JSON.stringify(todos));
+            window.localStorage.setItem("starArray", JSON.stringify(starArray));
         }else{
             let index = completedArray.indexOf(name);
             completedArray.splice(index, 1);
@@ -187,7 +204,9 @@ function check(){
 	if(inputValue.value != ""){
 		new item(inputValue.value, "container");
         todos.push(inputValue.value);
+        starArray.push(0);
         window.localStorage.setItem("todos", JSON.stringify(todos));
+        window.localStorage.setItem("starArray", JSON.stringify(starArray));
 		inputValue.value = "";
 	}
 }
@@ -195,10 +214,38 @@ function check(){
 
 for (var v = 0 ; v < todos.length ; v++){
     new item(todos[v], "container");
+  
+    // var box = todos[v];
+    // if (box.hasAttribute("store")) {
+    //     setupBox(box);
+    // }
 }
 
 for (var v = 0 ; v < completedArray.length ; v++){
     new item(completedArray[v], "completed");
 }
+console.log(container);
+var abc = document.querySelectorAll(".item");
+console.log(abc);
+for (var v = 0 ; v < starArray.length ; v++){
+    if(starArray[v] === 1){
+       console.log( abc[v].childNodes[3]);
+       var xyz = abc[v].childNodes[3];
 
+   xyz.innerHTML = '<i class="material-icons star_rate" style="color:yellow;">star_rate</i>';}
+
+}
+var boxes = document.querySelectorAll("input[type='checkbox']");
+
+
+
+// function setupBox(box) {
+//     var storageId = box.getAttribute("store");
+//     var oldVal    = localStorage.getItem(storageId);
+//     box.checked = oldVal === "true" ? true : false;
+
+//     box.addEventListener("change", function() {
+//         localStorage.setItem(storageId, this.checked); 
+//     });
+// }
 
