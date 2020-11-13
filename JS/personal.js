@@ -70,7 +70,7 @@ class item{
     	var edit = document.createElement('button');
     	edit.classList.add('edit');
     	edit.innerHTML = '<i class="material-icons create">create</i>';
-    	edit.addEventListener('click', () => this.edit(input, name, arrayName));
+    	edit.addEventListener('click', () => this.edit(input, name, edit, arrayName));
 
     	var remove = document.createElement('button');
     	remove.classList.add('remove');
@@ -93,13 +93,30 @@ class item{
 
     }
 
-    edit(input, name, arrayName){
+    edit(input, name,edit, arrayName){
         if(input.disabled == true){
            input.disabled = !input.disabled;
+           edit.innerHTML = '<i class="material-icons create" style="color:blue;">create</i>';
+           window.addEventListener('keydown', (e) => {
+           if (e.which == 13) {
+            // this.edit(input, name, arrayName, edit);
+            input.disabled = !input.disabled;
+            edit.innerHTML = '<i class="material-icons create" style="color:grey;">create</i>';
+            if(arrayName === "personalTodos"){
+                let indexof = personalTodos.indexOf(name);
+            personalTodos[indexof] = input.value;
+                window.localStorage.setItem(`${arrayName}`, JSON.stringify(personalTodos));
+            }else{
+                let indexof = personalCompletedArray.indexOf(name);
+            personalCompletedArray[indexof] = input.value;
+                window.localStorage.setItem(`${arrayName}`, JSON.stringify(personalCompletedArray));
+            }
+        }
+    });
         }
     	else{
             input.disabled = !input.disabled;
-           
+            edit.innerHTML = '<i class="material-icons create" style="color:grey;">create</i>';
             if(arrayName === "personalTodos"){
                 let indexof = personalTodos.indexOf(name);
             personalTodos[indexof] = input.value;
