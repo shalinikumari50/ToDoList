@@ -31,6 +31,7 @@ var starArray = JSON.parse(starArrayEX);
 
 var completedEX = window.localStorage.getItem("completedArray");
 var completedArray = JSON.parse(completedEX);
+
 class item {
     constructor(name, divContainer) {
         this.createItem(name, divContainer);
@@ -48,6 +49,7 @@ class item {
         var checkForCompleted = document.createElement('INPUT');
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
+        
 
         // change function to check important
         var arrayName;
@@ -57,6 +59,7 @@ class item {
         } else {
             arrayName = "todos";
         }
+        
         checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted, itemBox, input, arrayName));
 
 
@@ -173,10 +176,10 @@ class item {
     }
 
     complete(checkForCompleted, itemBox, input, arrayName) {
+        
 
         if (checkForCompleted.checked) {
-
-            this.remove(itemBox, input.value, "todos");
+        this.remove(itemBox, input.value, "todos");
             new item(input.value, "completed");
             completedArray.push(input.value);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
@@ -194,7 +197,14 @@ class item {
             todos.push(input.value);
             window.localStorage.setItem("todos", JSON.stringify(todos));
         }
+        if(completedArray.length>0){
+            document.querySelector("h2").innerHTML="COMPLETED";
+        }
+        else{
+            document.querySelector("h2").innerHTML="";
+        }
     }
+
 }
 
 add.addEventListener('click', check);
@@ -247,7 +257,14 @@ for (var v = 0; v < todos.length; v++) {
 }
 
 for (var v = 0; v < completedArray.length; v++) {
+    if(completedArray.length>0){
+        document.querySelector("h2").innerHTML="COMPLETED";
+    }
+    else{
+        document.querySelector("h2").innerHTML="";
+    }
     new item(completedArray[v], "completed");
+
 }
 console.log(container);
 var abc = document.querySelectorAll(".item");
