@@ -89,7 +89,7 @@ class item {
         // due date
         var dueDate = document.createElement('p');
         dueDate.classList.add('dueDate');
-        dueDate.innerHTML = 'Due Date:';
+        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>03-12-2020  21:00</span>';
         dueDate.addEventListener('click', () => this.dueDate(itemBox, name, arrayName));
 
         // if(divContainer === "container"){
@@ -100,15 +100,15 @@ class item {
         document.querySelector("." + `${divContainer}`).appendChild(itemBox);
         itemBox.appendChild(checkForCompleted);
         itemBox.appendChild(input);
+        itemBox.appendChild(dueDate);
         itemBox.appendChild(edit);
         itemBox.appendChild(star);
         itemBox.appendChild(remove);
-        itemBox.appendChild(dueDate);
-
-    }
-    dueDate(itemBox, name, arrayName){
         
 
+    }
+    dueDate(){
+        
     }
 
     edit(input, name, arrayName, edit) {
