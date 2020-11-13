@@ -188,6 +188,12 @@ class item{
             personalTodos.push(input.value);
             window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
         }
+        if(personalCompletedArray.length>0){
+            document.querySelector("h2").innerHTML="COMPLETED";
+        }
+        else{
+            document.querySelector("h2").innerHTML="";
+        }
     }
 }
 
@@ -239,6 +245,12 @@ for (var v = 0 ; v < personalTodos.length ; v++){
 }
 
 for (var v = 0 ; v < personalCompletedArray.length ; v++){
+    if(personalCompletedArray.length>0){
+        document.querySelector("h2").innerHTML="COMPLETED";
+    }
+    else{
+        document.querySelector("h2").innerHTML="";
+    }
     new item(personalCompletedArray[v], "completed");
 }
 console.log(container);
