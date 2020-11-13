@@ -16,15 +16,26 @@
 .container h1{
     /* color: rgb(161, 18, 161); */
     font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 .item {
     /* background-color: lightblue; */
-    margin-bottom:20px;
+    margin-bottom:32px;
     line-height:70px;
+    position: relative;
     align-items: center;
     justify-content: start;
     display:flex;
+    /* flex-wrap: wrap; */
     
+}
+.item p{
+    line-height: 10px;
+    color: gray;
+    margin-left: 30px;
+    font-size: 13px;
+    position: absolute;
+    top: 35px;
 }
 .container{
     margin-top:50px;
@@ -56,11 +67,10 @@ input[type=date]:focus,input[type=time]:focus,input[type=text]:focus{
 
 }
 input[type=checkbox]{
-   border:none;
-   outline:none;
-   width:25px;
-   
-   height:25px;
+    border:none;
+    outline:none;
+    width:25px;
+    height:25px;
    
   
  
@@ -82,23 +92,24 @@ input[type=checkbox]{
     text-transform: capitalize;
 }
 .edit{
-color:grey;
-border: none;
-outline:none;
-background-color: white;
+    color:grey;
+    border: none;
+    outline:none;
+    background-color: white;
 }
 
 .star{
     color:grey;
     border: none;
     background-color: white;
-outline:none;}
+    outline:none;
+}
 
 .remove{
     color:grey;
     background-color: white;
     border: none;
-outline:none;
+    outline:none;
 }
 .edit:hover{
     color:blue;
@@ -106,8 +117,8 @@ outline:none;
 
 }
 .star:hover{
-color:yellow;
-transform:scale(1.2);
+    color:#FFBA00;
+    transform:scale(1.2);
 
 }
 .remove:hover{
@@ -118,7 +129,7 @@ transform:scale(1.2);
 .margin{
     margin-top: 15px;
 }
- .calendar{
+.calendar{
     display:inline;
 }
 

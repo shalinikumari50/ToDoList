@@ -28,7 +28,7 @@
     font-size: 35px;
     color:white;
     position:fixed;
-    top:1px;
+    top:2px;
     left:20px;
 }
 .show-btn{
@@ -67,6 +67,9 @@
     margin-top:70px;
     float:right;
     transition:0.7s;
+}
+.content h1{
+    margin-bottom: 50px;
 }
 
 
@@ -168,7 +171,7 @@ a i{
      }
      
      .content{
-         width: 80%;
+         width: 79%;
          margin-top:70px;
          float:right;
          transition:0.7s;
