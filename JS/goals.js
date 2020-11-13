@@ -190,7 +190,7 @@ class item {
             goalsTodos.push(input.value);
             window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
         }
-        if(goalsCompletedArray>0){
+        if(goalsCompletedArray.length>0){
             document.querySelector("h2").innerHTML="COMPLETED";
         }
         else{
@@ -247,7 +247,7 @@ for (var v = 0; v < goalsTodos.length; v++) {
 }
 
 for (var v = 0; v < goalsCompletedArray.length; v++) {
-    if(goalsCompletedArray>0){
+    if(goalsCompletedArray.length>0){
         document.querySelector("h2").innerHTML="COMPLETED";
     }
     else{
