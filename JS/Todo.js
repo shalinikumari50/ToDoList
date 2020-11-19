@@ -283,7 +283,7 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "" ) {
+    if (inputValue.value != "" && dateValue.value!="" && timeValue.value!="" ) {
         var dateTimeValue = dateValue.value+" " + timeValue.value;
         new item(inputValue.value, dateTimeValue,  "container");
         todos.push(inputValue.value);
@@ -295,6 +295,8 @@ function check() {
         inputValue.value = "";
         dateValue.value = "";
         timeValue.value = "";
+    }else{
+        alert("Fill all the fields!!!!");
     }
 }
 

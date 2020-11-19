@@ -258,7 +258,7 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "") {
+    if (inputValue.value != "" && goalDateValue.value!="" && goalTimeValue.value!="") {
         var goalDateTimeValue = goalDateValue.value+" " + goalTimeValue.value;
         new item(inputValue.value,goalDateTimeValue, "container");
         goalsTodos.push(inputValue.value);
@@ -270,6 +270,8 @@ function check() {
         inputValue.value = "";
         goalDateValue.value = "";
         goalTimeValue.value = "";
+    }else{
+        alert("Fill all the fields!!!!")
     }
 }
 

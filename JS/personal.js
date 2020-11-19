@@ -256,7 +256,7 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check(){
-	if(inputValue.value != ""){
+	if(inputValue.value != "" && personalDateValue.value!="" && personalTimeValue.value!=""){
         var personalDateTimeValue = personalDateValue.value+" " + personalTimeValue.value;
 		new item(inputValue.value,personalDateTimeValue, "container");
         personalTodos.push(inputValue.value);
@@ -268,7 +268,9 @@ function check(){
         inputValue.value = "";
         personalDateValue.value = "";
         personalTimeValue.value = "";
-	}
+	}else{
+        alert("Fill all the fields!!!!");
+    }
 }
 
 
