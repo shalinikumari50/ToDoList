@@ -268,6 +268,8 @@ function check() {
         window.localStorage.setItem("goalDateTime", JSON.stringify(goalDateTime));
         window.localStorage.setItem("goalsStarArray", JSON.stringify(goalsStarArray));
         inputValue.value = "";
+        goalDateValue.value = "";
+        goalTimeValue.value = "";
     }
 }
 

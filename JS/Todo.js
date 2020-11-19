@@ -293,6 +293,8 @@ function check() {
         window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         window.localStorage.setItem("starArray", JSON.stringify(starArray));
         inputValue.value = "";
+        dateValue.value = "";
+        timeValue.value = "";
     }
 }
 
