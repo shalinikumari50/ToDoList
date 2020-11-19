@@ -227,7 +227,7 @@ class item {
             window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
             input.style.textDecoration = "line-through";
             //dueDate.style.textDecoration ="line-through";
-            dueDate.querySelector("span").style.textDecoration = "line-through";
+            //dueDate.querySelector("span").style.textDecoration = "line-through";
             itemBox.style.opacity = 0.5;
             // var checkboxes = document.getElementsByClassName("completed");
             // checkboxes.checked=true;
