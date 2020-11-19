@@ -3,6 +3,8 @@
 
 const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
+var dateValue = document.querySelector('.datepicker');
+var timeValue = document.querySelector('.timepicker');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
@@ -11,6 +13,16 @@ if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
 
     window.localStorage.setItem("todos", JSON.stringify(todos));
+}
+if (window.localStorage.getItem("dateTime") == undefined) {
+    var dateTime = [];
+
+    window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
+}
+if (window.localStorage.getItem("completeDateTime") == undefined) {
+    var completeDateTime = [];
+
+    window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
 }
 if (window.localStorage.getItem("completedArray") == undefined) {
     var completedArray = [];
@@ -26,6 +38,12 @@ if (window.localStorage.getItem("starArray") == undefined) {
 var todosEX = window.localStorage.getItem("todos");
 var todos = JSON.parse(todosEX);
 
+var dateTimeEX = window.localStorage.getItem("dateTime");
+var dateTime = JSON.parse(dateTimeEX);
+
+var completeDateTimeEX = window.localStorage.getItem("completeDateTime");
+var completeDateTime = JSON.parse(completeDateTimeEX);
+
 var starArrayEX = window.localStorage.getItem("starArray");
 var starArray = JSON.parse(starArrayEX);
 
@@ -33,10 +51,10 @@ var completedEX = window.localStorage.getItem("completedArray");
 var completedArray = JSON.parse(completedEX);
 
 class item {
-    constructor(name, divContainer) {
-        this.createItem(name, divContainer);
+    constructor(name,dateTimeValue, divContainer) {
+        this.createItem(name,dateTimeValue, divContainer);
     }
-    createItem(name, divContainer) {
+    createItem(name,dateTimeValue, divContainer) {
         
         var itemBox = document.createElement('div');
         itemBox.classList.add('item');
@@ -49,11 +67,20 @@ class item {
         input.value = name;
         input.classList.add('item_input');
 
+
+        
+
         var checkForCompleted = document.createElement('INPUT');
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
         
 
+        // due date
+        var dueDate = document.createElement('p');
+        dueDate.classList.add('dueDate');
+        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>'+`${dateTimeValue}`+'</span>';
+    
+    
         // change function to check important
         var arrayName;
         if (divContainer === "completed") {
@@ -62,8 +89,9 @@ class item {
         } else {
             arrayName = "todos";
         }
+
         
-        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted, itemBox, input, arrayName));
+        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted,dateTimeValue,dueDate, itemBox, input, arrayName));
 
 
         var star = document.createElement('button');
@@ -86,11 +114,6 @@ class item {
 
         remove.addEventListener('click', () => this.remove(itemBox, name, arrayName));
 
-        // due date
-        var dueDate = document.createElement('p');
-        dueDate.classList.add('dueDate');
-        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>03-12-2020  21:00</span>';
-        dueDate.addEventListener('click', () => this.dueDate(itemBox, name, arrayName));
 
         // if(divContainer === "container"){
         //     container.appendChild(itemBox);
@@ -107,9 +130,7 @@ class item {
         
 
     }
-    dueDate(){
-        
-    }
+
 
     edit(input, name, arrayName, edit) {
         if (input.disabled == true) {
@@ -177,26 +198,36 @@ class item {
             console.log(name);
             todos.splice(index, 1);
             starArray.splice(index, 1);
-
+            dateTime.splice(index,1);
             window.localStorage.setItem("todos", JSON.stringify(todos));
             window.localStorage.setItem("starArray", JSON.stringify(starArray));
+            window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         } else {
             let index = completedArray.indexOf(name);
             completedArray.splice(index, 1);
+            completeDateTime.splice(index,1);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
+            window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
         }
 
     }
 
-    complete(checkForCompleted, itemBox, input, arrayName) {
+    complete(checkForCompleted, dateTimeValue, dueDate, itemBox, input, arrayName) {
         
 
         if (checkForCompleted.checked) {
-        this.remove(itemBox, input.value, "todos");
-            new item(input.value, "completed");
+            // console.log(checkForCompleted.checked);
+            // console.log(dueDate.querySelector("span"));
+
+            this.remove(itemBox, input.value, "todos");
+            new item(input.value, dateTimeValue, "completed");
             completedArray.push(input.value);
+            completeDateTime.push(dateTimeValue);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
+            window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
             input.style.textDecoration = "line-through";
+            //dueDate.style.textDecoration ="line-through";
+            dueDate.querySelector("span").style.textDecoration = "line-through";
             itemBox.style.opacity = 0.5;
             // var checkboxes = document.getElementsByClassName("completed");
             // checkboxes.checked=true;
@@ -204,11 +235,14 @@ class item {
 
         } else {
             input.style.textDecoration = "none";
+            dueDate.querySelector("span").style.textDecoration = "none";
             itemBox.style.opacity = 1;
             this.remove(itemBox, input.value, "completedArray");
-            new item(input.value, "container");
+            new item(input.value, dateTimeValue, "container");
             todos.push(input.value);
+            dateTime.push(dateTimeValue);
             window.localStorage.setItem("todos", JSON.stringify(todos));
+            window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         }
         if(completedArray.length>0){
             document.querySelector("h2").innerHTML="COMPLETED";
@@ -249,11 +283,14 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "") {
-        new item(inputValue.value, "container");
+    if (inputValue.value != "" ) {
+        var dateTimeValue = dateValue.value+" " + timeValue.value;
+        new item(inputValue.value, dateTimeValue,  "container");
         todos.push(inputValue.value);
+        dateTime.push(dateTimeValue);
         starArray.push(0);
         window.localStorage.setItem("todos", JSON.stringify(todos));
+        window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         window.localStorage.setItem("starArray", JSON.stringify(starArray));
         inputValue.value = "";
     }
@@ -261,7 +298,7 @@ function check() {
 
 
 for (var v = 0; v < todos.length; v++) {
-    new item(todos[v], "container");
+    new item(todos[v],dateTime[v], "container");
 
     // var box = todos[v];
     // if (box.hasAttribute("store")) {
@@ -276,7 +313,7 @@ for (var v = 0; v < completedArray.length; v++) {
     else{
         document.querySelector("h2").innerHTML="";
     }
-    new item(completedArray[v], "completed");
+    new item(completedArray[v],completeDateTime[v], "completed");
 
 }
 console.log(container);

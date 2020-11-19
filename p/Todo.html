@@ -56,7 +56,7 @@
     <h1><span class="title">Todo</span>List</h1>
     <div class="input-div box">
         <div class="input-group">
-            <input type="text" class="input" placeholder="What Do You Want to Do...">
+            <input type="text" class="input" placeholder="What Do You Want to Do..." required>
             <!-- <textarea class="form-control input" aria-label="With textarea"
                 placeholder="Write your tasks here........" id="data"></textarea> -->
         </div>
@@ -69,12 +69,12 @@
                 x.setAttribute("value", "2014-02-09");
                 document.body.appendChild(x);
               } -->
-              <input type="date" value="yyyy-mm-dd" id="datepicker">
+              <input type="date" value="dd-mm-yyyy" class="datepicker" required>
             <!-- <i class="material-icons event">event</i> -->
         </div>
         <div class="clock">
             
-            <input type="time" value="hh:mm" id="timepicker">
+            <input type="time" value="HH:mm" class="timepicker">
         </div>
     </div>
     <div class="button">
