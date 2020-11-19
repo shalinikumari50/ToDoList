@@ -190,6 +190,9 @@ class item{
             personalCompleteDateTime.splice(index,1);
             window.localStorage.setItem("personalCompletedArray", JSON.stringify(personalCompletedArray));
             window.localStorage.setItem("personalCompleteDateTime", JSON.stringify(personalCompleteDateTime));
+            if(completedArray.length<=0){
+                document.querySelector("h2").innerHTML="";
+            }
         }
         
     }

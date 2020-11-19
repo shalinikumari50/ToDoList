@@ -208,6 +208,9 @@ class item {
             completeDateTime.splice(index,1);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
             window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
+            if(completedArray.length<=0){
+                document.querySelector("h2").innerHTML="";
+            }
         }
 
     }

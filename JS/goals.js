@@ -192,6 +192,9 @@ class item {
             goalCompleteDateTime.splice(index,1);
             window.localStorage.setItem("goalsCompletedArray", JSON.stringify(goalsCompletedArray));
             window.localStorage.setItem("goalCompleteDateTime", JSON.stringify(goalCompleteDateTime));
+            if(completedArray.length<=0){
+                document.querySelector("h2").innerHTML="";
+            }
         }
 
     }
