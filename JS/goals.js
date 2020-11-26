@@ -3,8 +3,7 @@
 
 const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
-var goalDateValue = document.querySelector('.datepicker');
-var goalTimeValue = document.querySelector('.timepicker');
+
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
@@ -14,16 +13,7 @@ if (window.localStorage.getItem("goalsTodos") == undefined) {
 
     window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
 }
-if (window.localStorage.getItem("goalDateTime") == undefined) {
-    var goalDateTime = [];
 
-    window.localStorage.setItem("goalDateTime", JSON.stringify(goalDateTime));
-}
-if (window.localStorage.getItem("goalCompleteDateTime") == undefined) {
-    var goalCompleteDateTime = [];
-
-    window.localStorage.setItem("goalCompleteDateTime", JSON.stringify(goalCompleteDateTime));
-}
 if (window.localStorage.getItem("goalsCompletedArray") == undefined) {
     var goalsCompletedArray = [];
 
@@ -38,11 +28,7 @@ if (window.localStorage.getItem("goalsStarArray") == undefined) {
 var goalsTodosEX = window.localStorage.getItem("goalsTodos");
 var goalsTodos = JSON.parse(goalsTodosEX);
 
-var goalDateTimeEX = window.localStorage.getItem("goalDateTime");
-var goalDateTime = JSON.parse(goalDateTimeEX);
 
-var goalCompleteDateTimeEX = window.localStorage.getItem("goalCompleteDateTime");
-var goalCompleteDateTime = JSON.parse(goalCompleteDateTimeEX);
 
 var goalsStarArrayEX = window.localStorage.getItem("goalsStarArray");
 var goalsStarArray = JSON.parse(goalsStarArrayEX);
@@ -50,14 +36,13 @@ var goalsStarArray = JSON.parse(goalsStarArrayEX);
 var completedEX = window.localStorage.getItem("goalsCompletedArray");
 var goalsCompletedArray = JSON.parse(completedEX);
 class item {
-    constructor(name,goalDateTimeValue, divContainer) {
-        this.createItem(name,goalDateTimeValue, divContainer);
+    constructor(name, divContainer) {
+        this.createItem(name, divContainer);
     }
-    createItem(name,goalDateTimeValue, divContainer) {
+    createItem(name, divContainer) {
         var itemBox = document.createElement('div');
         itemBox.classList.add('item');
-        var dateBox = document.createElement('div');
-        dateBox.classList.add('goalDateTime');
+        
 
         var input = document.createElement('input');
         input.type = "text";
@@ -69,10 +54,8 @@ class item {
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
 
-        // due date
-        var dueDate = document.createElement('p');
-        dueDate.classList.add('dueDate');
-        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>'+`${goalDateTimeValue}`+'</span>';
+        
+       
 
         // change function to check important
         var arrayName;
@@ -82,7 +65,7 @@ class item {
         } else {
             arrayName = "goalsTodos";
         }
-        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted,goalDateTimeValue, itemBox, input, arrayName));
+        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted, itemBox, input, arrayName));
 
 
         var star = document.createElement('button');
@@ -111,7 +94,7 @@ class item {
         document.querySelector("." + `${divContainer}`).appendChild(itemBox);
         itemBox.appendChild(checkForCompleted);
         itemBox.appendChild(input);
-        itemBox.appendChild(dueDate);
+   
         itemBox.appendChild(edit);
         itemBox.appendChild(star);
         itemBox.appendChild(remove);
@@ -182,33 +165,33 @@ class item {
             console.log(name);
             goalsTodos.splice(index, 1);
             goalsStarArray.splice(index, 1);
-            goalDateTime.splice(index,1);
+            
             window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
             window.localStorage.setItem("goalsStarArray", JSON.stringify(goalsStarArray));
-            window.localStorage.setItem("goalDateTime", JSON.stringify(goalDateTime));
+           
         } else {
             let index = goalsCompletedArray.indexOf(name);
             goalsCompletedArray.splice(index, 1);
-            goalCompleteDateTime.splice(index,1);
+           
             window.localStorage.setItem("goalsCompletedArray", JSON.stringify(goalsCompletedArray));
-            window.localStorage.setItem("goalCompleteDateTime", JSON.stringify(goalCompleteDateTime));
-            if(completedArray.length<=0){
+           
+            if(goalsCompletedArray.length<=0){
                 document.querySelector("h2").innerHTML="";
             }
         }
 
     }
 
-    complete(checkForCompleted,goalDateTimeValue, itemBox, input, arrayName) {
+    complete(checkForCompleted, itemBox, input, arrayName) {
 
         if (checkForCompleted.checked) {
 
             this.remove(itemBox, input.value, "goalsTodos");
-            new item(input.value,goalDateTimeValue, "completed");
+            new item(input.value, "completed");
             goalsCompletedArray.push(input.value);
-            goalCompleteDateTime.push(goalDateTimeValue);
+            
             window.localStorage.setItem("goalsCompletedArray", JSON.stringify(goalsCompletedArray));
-            window.localStorage.setItem("goalCompleteDateTime", JSON.stringify(goalCompleteDateTime));
+            
             input.style.textDecoration = "line-through";
             itemBox.style.opacity = 0.5;
             // var checkboxes = document.getElementsByClassName("completed");
@@ -219,11 +202,11 @@ class item {
             input.style.textDecoration = "none";
             itemBox.style.opacity = 1;
             this.remove(itemBox, input.value, "goalsCompletedArray");
-            new item(input.value,goalDateTimeValue, "container");
+            new item(input.value, "container");
             goalsTodos.push(input.value);
-            goalDateTime.push(goalDateTimeValue);
+           
             window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
-            window.localStorage.setItem("goalDateTime", JSON.stringify(goalDateTime));
+            
         }
         if(goalsCompletedArray.length>0){
             document.querySelector("h2").innerHTML="COMPLETED";
@@ -261,26 +244,24 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "" && goalDateValue.value!="" && goalTimeValue.value!="") {
-        var goalDateTimeValue = goalDateValue.value+" " + goalTimeValue.value;
-        new item(inputValue.value,goalDateTimeValue, "container");
+    if (inputValue.value != "" ) {
+       
+        new item(inputValue.value, "container");
         goalsTodos.push(inputValue.value);
         goalsStarArray.push(0);
-        goalDateTime.push(goalDateTimeValue);
+        
         window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
-        window.localStorage.setItem("goalDateTime", JSON.stringify(goalDateTime));
+       
         window.localStorage.setItem("goalsStarArray", JSON.stringify(goalsStarArray));
         inputValue.value = "";
-        goalDateValue.value = "";
-        goalTimeValue.value = "";
-    }else{
-        alert("Fill all the fields!!!!")
+       
+      
     }
 }
 
 
 for (var v = 0; v < goalsTodos.length; v++) {
-    new item(goalsTodos[v],goalDateTime[v], "container");
+    new item(goalsTodos[v], "container");
 
     // var box = goalsTodos[v];
     // if (box.hasAttribute("store")) {
@@ -295,7 +276,7 @@ for (var v = 0; v < goalsCompletedArray.length; v++) {
     else{
         document.querySelector("h2").innerHTML="";
     }
-    new item(goalsCompletedArray[v],goalCompleteDateTime[v], "completed");
+    new item(goalsCompletedArray[v], "completed");
 }
 console.log(container);
 var abc = document.querySelectorAll(".item");

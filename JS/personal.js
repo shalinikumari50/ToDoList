@@ -3,8 +3,7 @@
 
 const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
-var personalDateValue = document.querySelector('.datepicker');
-var personalTimeValue = document.querySelector('.timepicker');
+
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
@@ -14,16 +13,7 @@ if(window.localStorage.getItem("personalTodos") == undefined){
 
      window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
 }
-if (window.localStorage.getItem("personalDateTime") == undefined) {
-    var personalDateTime = [];
 
-    window.localStorage.setItem("personalDateTime", JSON.stringify(personalDateTime));
-}
-if (window.localStorage.getItem("personalCompleteDateTime") == undefined) {
-    var personalCompleteDateTime = [];
-
-    window.localStorage.setItem("personalCompleteDateTime", JSON.stringify(personalCompleteDateTime));
-}
 if(window.localStorage.getItem("personalCompletedArray") == undefined){
      var personalCompletedArray = [];
      
@@ -38,11 +28,7 @@ if(window.localStorage.getItem("personalStarArray") == undefined){
 var personalTodosEX = window.localStorage.getItem("personalTodos");
 var personalTodos = JSON.parse(personalTodosEX);
 
-var personalDateTimeEX = window.localStorage.getItem("personalDateTime");
-var personalDateTime = JSON.parse(personalDateTimeEX);
 
-var personalCompleteDateTimeEX = window.localStorage.getItem("personalCompleteDateTime");
-var personalCompleteDateTime = JSON.parse(personalCompleteDateTimeEX);
 
 var personalStarArrayEX = window.localStorage.getItem("personalStarArray");
 var personalStarArray = JSON.parse(personalStarArrayEX);
@@ -50,14 +36,13 @@ var personalStarArray = JSON.parse(personalStarArrayEX);
 var completedEX = window.localStorage.getItem("personalCompletedArray");
 var personalCompletedArray = JSON.parse(completedEX);
 class item{
-	constructor(name,personalDateTimeValue, divContainer){
-		this.createItem(name,personalDateTimeValue, divContainer);
+	constructor(name, divContainer){
+		this.createItem(name, divContainer);
 	}
-    createItem(name,personalDateTimeValue, divContainer){
+    createItem(name, divContainer){
     	var itemBox = document.createElement('div');
         itemBox.classList.add('item');
-        var dateBox = document.createElement('div');
-        dateBox.classList.add('personalDateTime');
+       
 
     	var input = document.createElement('input');
     	input.type = "text";
@@ -69,9 +54,7 @@ class item{
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
 
-        var dueDate = document.createElement('p');
-        dueDate.classList.add('dueDate');
-        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>'+`${personalDateTimeValue}`+'</span>';
+        
 
         
         // change function to check important
@@ -82,7 +65,7 @@ class item{
         }else{
             arrayName = "personalTodos";
         }
-    	checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted,personalDateTimeValue, itemBox, input, arrayName));
+    	checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted, itemBox, input, arrayName));
 
         
         var star = document.createElement('button');
@@ -111,7 +94,7 @@ class item{
         document.querySelector("."+`${divContainer}`).appendChild(itemBox);
         itemBox.appendChild(checkForCompleted);
         itemBox.appendChild(input);
-        itemBox.appendChild(dueDate);
+  
         itemBox.appendChild(edit);
         itemBox.appendChild(star);
         itemBox.appendChild(remove);
@@ -180,33 +163,33 @@ class item{
             console.log(name);
             personalTodos.splice(index, 1);
             personalStarArray.splice(index,1);
-            personalDateTime.splice(index,1);
+            
             window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
             window.localStorage.setItem("personalStarArray", JSON.stringify(personalStarArray));
-            window.localStorage.setItem("personalDateTime", JSON.stringify(personalDateTime));
+            
         }else{
             let index = personalCompletedArray.indexOf(name);
             personalCompletedArray.splice(index, 1);
-            personalCompleteDateTime.splice(index,1);
+            
             window.localStorage.setItem("personalCompletedArray", JSON.stringify(personalCompletedArray));
-            window.localStorage.setItem("personalCompleteDateTime", JSON.stringify(personalCompleteDateTime));
-            if(completedArray.length<=0){
+            
+            if(personalCompletedArray.length<=0){
                 document.querySelector("h2").innerHTML="";
             }
         }
         
     }
 
-    complete(checkForCompleted,personalDateTimeValue, itemBox, input, arrayName){
+    complete(checkForCompleted, itemBox, input, arrayName){
         
         if(checkForCompleted.checked){
            
             this.remove(itemBox, input.value, "personalTodos");
-            new item(input.value,personalDateTimeValue, "completed");
+          
             personalCompletedArray.push(input.value);
-            personalCompleteDateTime.push(personalDateTimeValue);
+            
             window.localStorage.setItem("personalCompletedArray", JSON.stringify(personalCompletedArray));
-            window.localStorage.setItem("personalCompleteDateTime", JSON.stringify(personalCompleteDateTime));
+            
             input.style.textDecoration = "line-through";
             itemBox.style.opacity = 0.5;
             // var checkboxes = document.getElementsByClassName("completed");
@@ -217,11 +200,11 @@ class item{
             input.style.textDecoration = "none";
             itemBox.style.opacity = 1;
             this.remove(itemBox, input.value, "personalCompletedArray");
-            new item(input.value,personalDateTimeValue, "container");
+            
             personalTodos.push(input.value);
-            personalDateTime.push(personalDateTimeValue);
+            
             window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
-            window.localStorage.setItem("personalDateTime", JSON.stringify(personalDateTime));
+            
         }
         if(personalCompletedArray.length>0){
             document.querySelector("h2").innerHTML="COMPLETED";
@@ -259,26 +242,22 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check(){
-	if(inputValue.value != "" && personalDateValue.value!="" && personalTimeValue.value!=""){
-        var personalDateTimeValue = personalDateValue.value+" " + personalTimeValue.value;
-		new item(inputValue.value,personalDateTimeValue, "container");
+	if(inputValue.value != "" ){
+        new item(inputValue.value, "container");
         personalTodos.push(inputValue.value);
         personalStarArray.push(0);
-        personalDateTime.push(personalDateTimeValue);
+        
         window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
         window.localStorage.setItem("personalStarArray", JSON.stringify(personalStarArray));
-        window.localStorage.setItem("personalDateTime", JSON.stringify(personalDateTime));
+        
         inputValue.value = "";
-        personalDateValue.value = "";
-        personalTimeValue.value = "";
-	}else{
-        alert("Fill all the fields!!!!");
-    }
+       
+	}
 }
 
 
 for (var v = 0 ; v < personalTodos.length ; v++){
-    new item(personalTodos[v],personalDateTime[v], "container");
+    new item(personalTodos[v], "container");
   
     // var box = personalTodos[v];
     // if (box.hasAttribute("store")) {
@@ -293,7 +272,7 @@ for (var v = 0 ; v < personalCompletedArray.length ; v++){
     else{
         document.querySelector("h2").innerHTML="";
     }
-    new item(personalCompletedArray[v],personalCompleteDateTime[v], "completed");
+    new item(personalCompletedArray[v], "completed");
 }
 console.log(container);
 var abc = document.querySelectorAll(".item");

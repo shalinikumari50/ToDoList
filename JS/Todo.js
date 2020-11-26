@@ -1,5 +1,6 @@
 // code from youtube tutorial
-
+const firstTab = document.querySelector('.firstTab');
+const secondTab = document.querySelector('.secondTab');
 
 const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
@@ -8,7 +9,31 @@ var timeValue = document.querySelector('.timepicker');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
+var isTab;
+// window.localStorage.setItem("isTab", isTab);
+if(window.localStorage.getItem("isTab") === "home"){
+    
+    home();
+}else if(window.localStorage.getItem("isTab") === "tasks"){
+    tasks();
 
+}
+
+
+function home(){
+    isTab="home";
+      window.localStorage.setItem("isTab", isTab);
+      firstTab.style.display = 'block';
+      secondTab.style.display='none';
+      
+}
+function tasks(){
+    isTab="tasks";
+    window.localStorage.setItem("isTab", isTab);
+    firstTab.style.display = 'none';
+    secondTab.style.display='block';
+   
+}
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
 
@@ -258,7 +283,7 @@ class item {
 }
 
 add.addEventListener('click', check);
-window.addEventListener('keydown', (e) => {
+inputValue.addEventListener('keydown', (e) => {
     if (e.which == 13) {
         check();
     }
@@ -328,8 +353,8 @@ var abc = document.querySelectorAll(".item");
 console.log(abc);
 for (var v = 0; v < starArray.length; v++) {
     if (starArray[v] === 1) {
-        console.log(abc[v].childNodes[3]);
-        var xyz = abc[v].childNodes[3];
+        console.log(abc[v].childNodes[4]);
+        var xyz = abc[v].childNodes[4];
 
         xyz.innerHTML = '<i class="material-icons star_rate" style="color:#FFBA00;">star_rate</i>';
     }
@@ -348,4 +373,34 @@ var boxes = document.querySelectorAll("input[type='checkbox']");
 //         localStorage.setItem(storageId, this.checked); 
 //     });
 // }
+
+
+
+
+// code for hiding input when task tab is opened
+
+var isTab;
+// window.localStorage.setItem("isTab", isTab);
+if(window.localStorage.getItem("isTab") === "home"){
+    
+    home();
+}else if(window.localStorage.getItem("isTab") === "tasks"){
+    tasks();
+
+}
+
+
+function home(){
+      firstTab.style.display = 'block';
+      secondTab.style.display='none';
+      isTab="home";
+      window.localStorage.setItem("isTab", isTab);
+}
+function tasks(){
+    firstTab.style.display = 'none';
+    secondTab.style.display='block';
+    isTab="tasks";
+    window.localStorage.setItem("isTab", isTab);
+}
+
 
