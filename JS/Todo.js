@@ -8,7 +8,7 @@ var timeValue = document.querySelector('.timepicker');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
-var isTab;
+var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
 if (window.localStorage.getItem("isTab") === "home") {
 
@@ -34,8 +34,6 @@ function tasks() {
     window.localStorage.setItem("isTab", isTab);
     firstTab.style.display = 'none';
     secondTab.style.display = 'block';
-
-
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
