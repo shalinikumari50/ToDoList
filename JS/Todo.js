@@ -1,4 +1,3 @@
-// code from youtube tutorial
 const firstTab = document.querySelector('.firstTab');
 const secondTab = document.querySelector('.secondTab');
 
@@ -11,32 +10,32 @@ const completed = document.querySelector('.completed');
 
 var isTab;
 // window.localStorage.setItem("isTab", isTab);
-if(window.localStorage.getItem("isTab") === "home"){
-    
+if (window.localStorage.getItem("isTab") === "home") {
+
     home();
-}else if(window.localStorage.getItem("isTab") === "tasks"){
+} else if (window.localStorage.getItem("isTab") === "tasks") {
     tasks();
 
 }
 
 
-function home(){
+function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
-    isTab="home";
-      window.localStorage.setItem("isTab", isTab);
-      firstTab.style.display = 'block';
-      secondTab.style.display='none';
-      
-      
+    isTab = "home";
+    window.localStorage.setItem("isTab", isTab);
+    firstTab.style.display = 'block';
+    secondTab.style.display = 'none';
+
+
 }
-function tasks(){
+function tasks() {
     // document.querySelector('h1').innerHTML = 'Tasks';
-    isTab="tasks";
+    isTab = "tasks";
     window.localStorage.setItem("isTab", isTab);
     firstTab.style.display = 'none';
-    secondTab.style.display='block';
-    
-   
+    secondTab.style.display = 'block';
+
+
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
@@ -80,11 +79,11 @@ var completedEX = window.localStorage.getItem("completedArray");
 var completedArray = JSON.parse(completedEX);
 
 class item {
-    constructor(name,dateTimeValue, divContainer) {
-        this.createItem(name,dateTimeValue, divContainer);
+    constructor(name, dateTimeValue, divContainer) {
+        this.createItem(name, dateTimeValue, divContainer);
     }
-    createItem(name,dateTimeValue, divContainer) {
-        
+    createItem(name, dateTimeValue, divContainer) {
+
         var itemBox = document.createElement('div');
         itemBox.classList.add('item');
         var dateBox = document.createElement('div');
@@ -97,19 +96,19 @@ class item {
         input.classList.add('item_input');
 
 
-        
+
 
         var checkForCompleted = document.createElement('INPUT');
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
-        
+
 
         // due date
         var dueDate = document.createElement('p');
         dueDate.classList.add('dueDate');
-        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>'+`${dateTimeValue}`+'</span>';
-    
-    
+        dueDate.innerHTML = '<i class="material-icons today" style="color:red; font-size:15px;">today</i> <span>' + `${dateTimeValue}` + '</span>';
+
+
         // change function to check important
         var arrayName;
         if (divContainer === "completed") {
@@ -119,8 +118,8 @@ class item {
             arrayName = "todos";
         }
 
-        
-        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted,dateTimeValue,dueDate, itemBox, input, arrayName));
+
+        checkForCompleted.addEventListener('click', () => this.complete(checkForCompleted, dateTimeValue, dueDate, itemBox, input, arrayName));
 
 
         var star = document.createElement('button');
@@ -134,8 +133,8 @@ class item {
         edit.classList.add('edit');
         edit.innerHTML = '<i class="material-icons create">create</i>';
         edit.addEventListener('click', () => this.edit(input, name, arrayName, edit));
-        
-        
+
+
 
         var remove = document.createElement('button');
         remove.classList.add('remove');
@@ -156,7 +155,7 @@ class item {
         itemBox.appendChild(edit);
         itemBox.appendChild(star);
         itemBox.appendChild(remove);
-        
+
 
     }
 
@@ -196,9 +195,9 @@ class item {
             }
 
         }
-        
-        
-        
+
+
+
     }
 
     star(star, name, arrayName) {
@@ -227,25 +226,25 @@ class item {
             console.log(name);
             todos.splice(index, 1);
             starArray.splice(index, 1);
-            dateTime.splice(index,1);
+            dateTime.splice(index, 1);
             window.localStorage.setItem("todos", JSON.stringify(todos));
             window.localStorage.setItem("starArray", JSON.stringify(starArray));
             window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         } else {
             let index = completedArray.indexOf(name);
             completedArray.splice(index, 1);
-            completeDateTime.splice(index,1);
+            completeDateTime.splice(index, 1);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
             window.localStorage.setItem("completeDateTime", JSON.stringify(completeDateTime));
-            if(completedArray.length<=0){
-                document.querySelector("h2").innerHTML="";
+            if (completedArray.length <= 0) {
+                document.querySelector("h2").innerHTML = "";
             }
         }
 
     }
 
     complete(checkForCompleted, dateTimeValue, dueDate, itemBox, input, arrayName) {
-        
+
 
         if (checkForCompleted.checked) {
             // console.log(checkForCompleted.checked);
@@ -276,11 +275,11 @@ class item {
             window.localStorage.setItem("todos", JSON.stringify(todos));
             window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         }
-        if(completedArray.length>0){
-            document.querySelector("h2").innerHTML="COMPLETED";
+        if (completedArray.length > 0) {
+            document.querySelector("h2").innerHTML = "COMPLETED";
         }
-        else{
-            document.querySelector("h2").innerHTML="";
+        else {
+            document.querySelector("h2").innerHTML = "";
         }
     }
 
@@ -315,9 +314,12 @@ inputValue.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "" && dateValue.value!="" && timeValue.value!="" ) {
-        var dateTimeValue = dateValue.value+" " + timeValue.value;
-        new item(inputValue.value, dateTimeValue,  "container");
+    if (inputValue.value != "" && dateValue.value != "" && timeValue.value != "") {
+        showSuccess(inputValue, "input-group");
+        showSuccess(dateValue, "calendar");
+        showSuccess(timeValue, "clock");
+        var dateTimeValue = dateValue.value + " " + timeValue.value;
+        new item(inputValue.value, dateTimeValue, "container");
         todos.push(inputValue.value);
         dateTime.push(dateTimeValue);
         starArray.push(0);
@@ -327,14 +329,46 @@ function check() {
         inputValue.value = "";
         dateValue.value = "";
         timeValue.value = "";
-    }else{
-        alert("Fill all the fields!!!!");
+    } else {
+        if (inputValue.value === "") {
+            showError(inputValue, "input-group", "Enter Task");
+        }
+        else {
+            showSuccess(inputValue, "input-group");
+        }
+        if (dateValue.value === "") {
+            showError(dateValue, "calendar", "Enter date");
+        }
+        else {
+            showSuccess(dateValue, "calendar");
+        }
+        if (timeValue.value === "") {
+            showError(timeValue, "clock", "Enter time");
+        }
+        else {
+            showSuccess(timeValue, "clock");
+        }
+
+
     }
+}
+
+function showError(input, className, msg) {
+    const formControl = input.parentNode;
+    formControl.className = `${className}` + ' error';
+    const small = formControl.querySelector('small');
+    console.log(formControl.className);
+    small.innerHTML = msg;
+}
+function showSuccess(input, className) {
+    const formControl = input.parentNode;
+    formControl.className = `${className}`;
+    console.log(formControl.className);
 }
 
 
 for (var v = 0; v < todos.length; v++) {
-    new item(todos[v],dateTime[v], "container");
+    new item(todos[v], dateTime[v], "container");
 
     // var box = todos[v];
     // if (box.hasAttribute("store")) {
@@ -343,13 +377,13 @@ for (var v = 0; v < todos.length; v++) {
 }
 
 for (var v = 0; v < completedArray.length; v++) {
-    if(completedArray.length>0){
-        document.querySelector("h2").innerHTML="COMPLETED";
+    if (completedArray.length > 0) {
+        document.querySelector("h2").innerHTML = "COMPLETED";
     }
-    else{
-        document.querySelector("h2").innerHTML="";
+    else {
+        document.querySelector("h2").innerHTML = "";
     }
-    new item(completedArray[v],completeDateTime[v], "completed");
+    new item(completedArray[v], completeDateTime[v], "completed");
 
 }
 console.log(container);
@@ -385,26 +419,24 @@ var boxes = document.querySelectorAll("input[type='checkbox']");
 
 var isTab;
 // window.localStorage.setItem("isTab", isTab);
-if(window.localStorage.getItem("isTab") === "home"){
-    
+if (window.localStorage.getItem("isTab") === "home") {
+
     home();
-}else if(window.localStorage.getItem("isTab") === "tasks"){
+} else if (window.localStorage.getItem("isTab") === "tasks") {
     tasks();
 
 }
 
 
-function home(){
-      firstTab.style.display = 'block';
-      secondTab.style.display='none';
-      isTab="home";
-      window.localStorage.setItem("isTab", isTab);
-}
-function tasks(){
-    firstTab.style.display = 'none';
-    secondTab.style.display='block';
-    isTab="tasks";
+function home() {
+    firstTab.style.display = 'block';
+    secondTab.style.display = 'none';
+    isTab = "home";
     window.localStorage.setItem("isTab", isTab);
 }
-
-
+function tasks() {
+    firstTab.style.display = 'none';
+    secondTab.style.display = 'block';
+    isTab = "tasks";
+    window.localStorage.setItem("isTab", isTab);
+}
