@@ -1,4 +1,3 @@
-// code from youtube tutorial
 
 
 const container = document.querySelector('.container');
@@ -243,16 +242,28 @@ window.addEventListener('keydown', (e) => {
 
 function check(){
 	if(inputValue.value != "" ){
+        showSuccess(inputValue);
         new item(inputValue.value, "container");
         personalTodos.push(inputValue.value);
         personalStarArray.push(0);
-        
         window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
         window.localStorage.setItem("personalStarArray", JSON.stringify(personalStarArray));
-        
         inputValue.value = "";
-       
-	}
+	}else{
+        showError(inputValue, "Enter Task");
+    }
+}
+function showError(input, msg){
+    const formControl = input.parentNode;
+       formControl.className = 'input-group error';
+       const small = formControl.querySelector('small');
+       console.log(formControl.className);
+       small.innerHTML = msg;
+}
+function showSuccess(input){
+    const formControl = input.parentNode;
+       formControl.className = `imput-group`;
+       console.log(formControl.className);
 }
 
 

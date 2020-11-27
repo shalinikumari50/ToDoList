@@ -30,6 +30,24 @@
     text-decoration: line-through;
 }
 
+.input-group.error input{  
+    border:2px solid red; 
+}
+
+small{
+    visibility: hidden;
+    display:block;
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.error small{
+    color:red;
+   
+   
+    visibility: visible;
+}
+
 /* #calendarIcon{
     color:orange;
 } */
@@ -57,6 +75,8 @@
     <div class="input-div box">
         <div class="input-group">
             <input type="text" class="input" placeholder="What Do You Want to Do...">
+
+            <small >Message</small>
             <!-- <textarea class="form-control input" aria-label="With textarea"
                 placeholder="Write your tasks here........" id="data"></textarea> -->
         </div>
