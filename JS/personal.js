@@ -185,7 +185,7 @@ class item{
         if(checkForCompleted.checked){
            
             this.remove(itemBox, input.value, "personalTodos");
-          
+            new item(input.value, "completed");
             personalCompletedArray.push(input.value);
             
             window.localStorage.setItem("personalCompletedArray", JSON.stringify(personalCompletedArray));
@@ -200,7 +200,7 @@ class item{
             input.style.textDecoration = "none";
             itemBox.style.opacity = 1;
             this.remove(itemBox, input.value, "personalCompletedArray");
-            
+            new item(input.value, "container");
             personalTodos.push(input.value);
             
             window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
