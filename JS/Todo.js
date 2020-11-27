@@ -21,17 +21,21 @@ if(window.localStorage.getItem("isTab") === "home"){
 
 
 function home(){
+    // document.querySelector('h1').innerHTML = 'Add Task';
     isTab="home";
       window.localStorage.setItem("isTab", isTab);
       firstTab.style.display = 'block';
       secondTab.style.display='none';
       
+      
 }
 function tasks(){
+    // document.querySelector('h1').innerHTML = 'Tasks';
     isTab="tasks";
     window.localStorage.setItem("isTab", isTab);
     firstTab.style.display = 'none';
     secondTab.style.display='block';
+    
    
 }
 if (window.localStorage.getItem("todos") == undefined) {
