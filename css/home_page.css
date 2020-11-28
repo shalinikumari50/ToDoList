@@ -144,16 +144,13 @@ a i{
         display: inline;
        
     }
-    .sidebar:hover{
-       
+    .sidebar:hover{ 
         min-width: 200px;
-        
-        
-    
     }
     #chk:checked ~ .sidebar{
-        min-width: 200px;
+        min-width: 100vw;
         left:0;
+        text-align: center;
     }
     #chk:checked ~ .sidebar span{
         display:inline;
