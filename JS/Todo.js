@@ -14,10 +14,10 @@ const completed = document.querySelector('.completed');
 var tasksAnchor = document.getElementById('myTasks');
 var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
-if (window.localStorage.getItem("isTab") === "home") {
+if (window.sessionStorage.getItem("isTab") === "home") {
 
     home();
-} else if (window.localStorage.getItem("isTab") === "tasks") {
+} else if (window.sessionStorage.getItem("isTab") === "tasks") {
     tasks();
 
 }else{
@@ -29,7 +29,7 @@ if (window.localStorage.getItem("isTab") === "home") {
 function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
     isTab = "home";
-    window.localStorage.setItem("isTab", isTab);
+    window.sessionStorage.setItem("isTab", isTab);
     
     console.log(homeAnchor);
    
@@ -45,7 +45,7 @@ function home() {
 function tasks() {
     // document.querySelector('h1').innerHTML = 'Tasks';
     isTab = "tasks";
-    window.localStorage.setItem("isTab", isTab);
+    window.sessionStorage.setItem("isTab", isTab);
     document.getElementById('tasks').style.borderLeft = '10px solid lightgreen';
     document.getElementById('home').style.borderLeft = 'none';
     homeAnchor.style.color = 'white';

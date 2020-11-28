@@ -7,10 +7,10 @@ const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 function home(){
     isTab = "home";
-    window.localStorage.setItem("isTab", isTab);
+    window.sessionStorage.setItem("isTab", isTab);
 } function tasks(){
     isTab = "tasks";
-    window.localStorage.setItem("isTab", isTab);
+    window.sessionStorage.setItem("isTab", isTab);
 }
 
 if(window.localStorage.getItem("personalTodos") == undefined){
