@@ -21,10 +21,10 @@ if (window.sessionStorage.getItem("isTab") === "home") {
     tasks();
 
 }else{
-    homeAnchor.style.color = 'white';
+    homeAnchor.style.color = 'lightgreen';
     tasksAnchor.style.color = 'white';
     document.getElementById('tasks').style.borderLeft = 'none';
-    document.getElementById('home').style.borderLeft = 'none';
+    document.getElementById('home').style.borderLeft = '10px solid lightgreen';
 }
 function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
