@@ -46,7 +46,13 @@ small{
    
     visibility: visible;
 }
+#personal{
+            border-left: 10px solid lightgreen;
+        }
 
+        #personal i {
+            color: lightgreen
+        }
 /* #calendarIcon{
     color:orange;
 } */
@@ -121,8 +127,8 @@ small{
 <!-- ------sidebar started------- -->
     <div class="sidebar" id="side">
         <ul>
-            <li><a href="Todo.html" id="home"><i class="fa fa-home"></i><span>Home</span></a></li>
-            <li><a href="Todo.html" id="tasks"><i class="fa fa-check-circle"></i><span>Tasks</span></a></li>
+            <li onclick="home()"><a href="Todo.html" id="home"><i class="fa fa-home"></i><span>Home</span></a></li>
+            <li onclick="tasks()"><a href="Todo.html" id="tasks"><i class="fa fa-check-circle"></i><span>Tasks</span></a></li>
             <!-- <li><a href="Inbox.html" id="inbox"><i class="fa fa-bell"></i><span>Inbox</span></a></li> -->
             <li><a href="goals.html" id="goals"><i class="fa fa-tasks"></i><span>Goals</span></a></li>
             <li><a href="#" id="personal"><i class="fa fa-user"></i><span>Personal</span></a></li>

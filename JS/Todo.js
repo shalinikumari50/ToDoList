@@ -1,3 +1,4 @@
+
 const firstTab = document.querySelector('.firstTab');
 const secondTab = document.querySelector('.secondTab');
 
@@ -5,9 +6,12 @@ const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
 var dateValue = document.querySelector('.datepicker');
 var timeValue = document.querySelector('.timepicker');
+var homeAnchor = document.getElementById('myHome');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
+
+var tasksAnchor = document.getElementById('myTasks');
 var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
 if (window.localStorage.getItem("isTab") === "home") {
@@ -16,13 +20,23 @@ if (window.localStorage.getItem("isTab") === "home") {
 } else if (window.localStorage.getItem("isTab") === "tasks") {
     tasks();
 
+}else{
+    homeAnchor.style.color = 'white';
+    tasksAnchor.style.color = 'white';
+    document.getElementById('tasks').style.borderLeft = 'none';
+    document.getElementById('home').style.borderLeft = 'none';
 }
-
-
 function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
     isTab = "home";
     window.localStorage.setItem("isTab", isTab);
+    
+    console.log(homeAnchor);
+   
+    homeAnchor.style.color = 'lightgreen';
+    document.getElementById('home').style.borderLeft = '10px solid lightgreen';
+    document.getElementById('tasks').style.borderLeft = 'none';
+    tasksAnchor.style.color = 'white';
     firstTab.style.display = 'block';
     secondTab.style.display = 'none';
 
@@ -32,8 +46,13 @@ function tasks() {
     // document.querySelector('h1').innerHTML = 'Tasks';
     isTab = "tasks";
     window.localStorage.setItem("isTab", isTab);
+    document.getElementById('tasks').style.borderLeft = '10px solid lightgreen';
+    document.getElementById('home').style.borderLeft = 'none';
+    homeAnchor.style.color = 'white';
+    tasksAnchor.style.color = 'lightgreen';
     firstTab.style.display = 'none';
     secondTab.style.display = 'block';
+    console.log("kk");
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
@@ -220,8 +239,8 @@ class item {
 
         if (arrayName === "todos") {
             let index = todos.indexOf(name);
-            console.log(index);
-            console.log(name);
+            // console.log(index);
+            // console.log(name);
             todos.splice(index, 1);
             starArray.splice(index, 1);
             dateTime.splice(index, 1);
@@ -355,13 +374,13 @@ function showError(input, className, msg) {
     const formControl = input.parentNode;
     formControl.className = `${className}` + ' error';
     const small = formControl.querySelector('small');
-    console.log(formControl.className);
+    // console.log(formControl.className);
     small.innerHTML = msg;
 }
 function showSuccess(input, className) {
     const formControl = input.parentNode;
     formControl.className = `${className}`;
-    console.log(formControl.className);
+    // console.log(formControl.className);
 }
 
 
@@ -384,12 +403,12 @@ for (var v = 0; v < completedArray.length; v++) {
     new item(completedArray[v], completeDateTime[v], "completed");
 
 }
-console.log(container);
+// console.log(container);
 var abc = document.querySelectorAll(".item");
-console.log(abc);
+// console.log(abc);
 for (var v = 0; v < starArray.length; v++) {
     if (starArray[v] === 1) {
-        console.log(abc[v].childNodes[4]);
+        // console.log(abc[v].childNodes[4]);
         var xyz = abc[v].childNodes[4];
 
         xyz.innerHTML = '<i class="material-icons star_rate" style="color:#FFBA00;">star_rate</i>';
@@ -415,26 +434,26 @@ var boxes = document.querySelectorAll("input[type='checkbox']");
 
 // code for hiding input when task tab is opened
 
-var isTab;
-// window.localStorage.setItem("isTab", isTab);
-if (window.localStorage.getItem("isTab") === "home") {
+// var isTab;
+// // window.localStorage.setItem("isTab", isTab);
+// if (window.localStorage.getItem("isTab") === "home") {
 
-    home();
-} else if (window.localStorage.getItem("isTab") === "tasks") {
-    tasks();
+//     home();
+// } else if (window.localStorage.getItem("isTab") === "tasks") {
+//     tasks();
 
-}
+// }
 
 
-function home() {
-    firstTab.style.display = 'block';
-    secondTab.style.display = 'none';
-    isTab = "home";
-    window.localStorage.setItem("isTab", isTab);
-}
-function tasks() {
-    firstTab.style.display = 'none';
-    secondTab.style.display = 'block';
-    isTab = "tasks";
-    window.localStorage.setItem("isTab", isTab);
-}
+// function home() {
+//     firstTab.style.display = 'block';
+//     secondTab.style.display = 'none';
+//     isTab = "home";
+//     window.localStorage.setItem("isTab", isTab);
+// }
+// function tasks() {
+//     firstTab.style.display = 'none';
+//     secondTab.style.display = 'block';
+//     isTab = "tasks";
+//     window.localStorage.setItem("isTab", isTab);
+// }
