@@ -58,6 +58,45 @@
 /* .completed .item .checkbox{
      
 }   */
+.input-group.error input{
+    
+    border:2px solid red; 
+
+    
+}
+.clock.error input{
+    
+    border:2px solid red; 
+
+    
+}
+.calendar.error input{
+    
+    border:2px solid red; 
+
+    
+}
+small{
+    visibility: hidden;
+    display:block;
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.error small{
+    color:red;
+   
+   
+    visibility: visible;
+}
+.clock{
+    display:inline-block;
+}
+.calendar{
+    display:inline-block;
+}
+
+
     </style>
 </head>
 <body>
@@ -83,7 +122,9 @@
             <input type="text" class="input" placeholder="What Do You Want to Do..." required>
             <!-- <textarea class="form-control input" aria-label="With textarea"
                 placeholder="Write your tasks here........" id="data"></textarea> -->
-        </div>
+                <small >Message</small>
+            </div>
+       
         <div class="margin"></div>
        
         <div class="calendar">
@@ -95,15 +136,19 @@
               } -->
               <input type="date" value="dd-mm-yyyy" class="datepicker" required>
             <!-- <i class="material-icons event">event</i> -->
+            <small >Enter Date</small>
         </div>
         <div class="clock">
             
             <input type="time" value="HH:mm" class="timepicker">
+            <small >Enter Time</small>
+
         </div>
     </div>
     <div class="button">
         <button type="button" class="btn btn-primary add">Add</button>
         <!-- <button type="button" class="btn btn-link cancel">Cancel</button> -->
+        
     </div>
     <div class="vector">
         <img src="../images/vector2.jpg" class="img-fluid" alt="Responsive image">
