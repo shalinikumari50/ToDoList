@@ -8,6 +8,8 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@600&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -29,14 +31,25 @@
         .uppersection {
             /* background-color:#36454F; */
             background-image: linear-gradient(to right, lightgrey, grey);
-
             height: 80px;
             width: 100%;
             position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
         }
+        .uppersection #logo{
+            width: 90px;
+            height: 70px;
+        }
+        .uppersection .logoName{
+            color: white;
+            font-weight: 600;
+            font-family: 'Texturina', serif;
+        }
 
-
+/* 
         .loginsection {
             float: right;
             list-style: none;
@@ -63,7 +76,7 @@
             background-color: lightskyblue;
             color: white;
             transition: 0.3s;
-        }
+        } */
 
 
         .middlesection {
@@ -88,7 +101,7 @@
             float: left;
         }
 
-        main img {
+        main .vector {
             width: 40vw;
             height: 40vh;
             margin-top: 130px;
@@ -170,7 +183,7 @@
                 width: 95%;
             }
 
-            main img {
+            main .vector {
                 width: 70%;
                 margin: 40px auto;
             }
@@ -181,18 +194,19 @@
 <body>
     <div class="maincontainer">
         <header class="uppersection">
-            <img src=>
-            <ul class="loginsection">
+            <img src= "images/logo-removebg-preview.png" id="logo">
+            <h2 class="logoName">CheckList</h2>
+            <!-- <ul class="loginsection">
 
 
                 <li><a href="p/log_in.html">Login</a></li>
                 <li><a href="p/sign_up.html">Register</a></li>
-            </ul>
+            </ul> -->
         </header>
 
         <main class="middlesection">
             <div class="left">
-                <h1>Welcome To Checks Lists</h1>
+                <h1>Welcome To CheckList</h1>
 
                 <br>
                 <p>
@@ -206,10 +220,10 @@
 
 
                 <button id="button">
-                    <a href="p/sign_up.html">Get Started </a></button>
+                    <a href="p/Todo.html">Get Started </a></button>
 
             </div>
-            <img src="images/Capture.png" alt="vector">
+            <img src="images/Capture.png" alt="vector" class="vector">
         </main>
         <footer class="footer">
             <ul class="footerlist">
