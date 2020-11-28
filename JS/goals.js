@@ -6,7 +6,13 @@ var inputValue = document.querySelector('.input');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
 
-
+function home(){
+    isTab = "home";
+    window.sessionStorage.setItem("isTab", isTab);
+} function tasks(){
+    isTab = "tasks";
+    window.sessionStorage.setItem("isTab", isTab);
+}
 if (window.localStorage.getItem("goalsTodos") == undefined) {
     var goalsTodos = [];
 
