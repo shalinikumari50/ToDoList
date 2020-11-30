@@ -223,7 +223,7 @@ class item {
 
         }
         if (personalCompletedArray.length > 0) {
-            document.querySelector("h2").innerHTML = "COMPLETED";
+            document.querySelector("h2").innerHTML = "Completed";
         }
         else {
             document.querySelector("h2").innerHTML = "";
@@ -297,6 +297,12 @@ function showSuccess(input) {
     console.log(formControl.className);
 }
 
+if (personalTodos.length > 0 || personalCompletedArray.length > 0) {
+    taskVector.style.display = 'none';
+}
+else {
+    taskVector.style.display = 'block';
+}
 
 for (var v = 0; v < personalTodos.length; v++) {
     new item(personalTodos[v], "container");
@@ -309,7 +315,7 @@ for (var v = 0; v < personalTodos.length; v++) {
 
 for (var v = 0; v < personalCompletedArray.length; v++) {
     if (personalCompletedArray.length > 0) {
-        document.querySelector("h2").innerHTML = "COMPLETED";
+        document.querySelector("h2").innerHTML = "Completed";
     }
     else {
         document.querySelector("h2").innerHTML = "";

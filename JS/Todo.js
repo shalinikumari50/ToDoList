@@ -13,6 +13,8 @@ const taskVector = document.getElementById('task-vector');
 var tasksAnchor = document.getElementById('myTasks');
 var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
+
+
 if (window.sessionStorage.getItem("isTab") === "home") {
 
     home();
@@ -305,7 +307,7 @@ class item {
             window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         }
         if (completedArray.length > 0) {
-            document.querySelector("h2").innerHTML = "COMPLETED";
+            document.querySelector("h2").innerHTML = "Completed";
 
         }
         else {
@@ -408,6 +410,13 @@ function showSuccess(input, className) {
 }
 
 
+if (todos.length > 0 || completedArray.length > 0) {
+    taskVector.style.display = 'none';
+}
+else {
+    taskVector.style.display = 'block';
+}
+
 for (var v = 0; v < todos.length; v++) {
     new item(todos[v], dateTime[v], "container");
 
@@ -419,7 +428,7 @@ for (var v = 0; v < todos.length; v++) {
 
 for (var v = 0; v < completedArray.length; v++) {
     if (completedArray.length > 0) {
-        document.querySelector("h2").innerHTML = "COMPLETED";
+        document.querySelector("h2").innerHTML = "Completed";
     }
     else {
         document.querySelector("h2").innerHTML = "";

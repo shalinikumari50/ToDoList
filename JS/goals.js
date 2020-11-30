@@ -222,7 +222,7 @@ class item {
 
         }
         if (goalsCompletedArray.length > 0) {
-            document.querySelector("h2").innerHTML = "COMPLETED";
+            document.querySelector("h2").innerHTML = "Completed";
         }
         else {
             document.querySelector("h2").innerHTML = "";
@@ -300,6 +300,12 @@ function showSuccess(input) {
     console.log(formControl.className);
 }
 
+if (goalsTodos.length > 0 || goalsCompletedArray.length > 0) {
+    taskVector.style.display = 'none';
+}
+else {
+    taskVector.style.display = 'block';
+}
 
 for (var v = 0; v < goalsTodos.length; v++) {
     new item(goalsTodos[v], "container");
@@ -312,7 +318,7 @@ for (var v = 0; v < goalsTodos.length; v++) {
 
 for (var v = 0; v < goalsCompletedArray.length; v++) {
     if (goalsCompletedArray.length > 0) {
-        document.querySelector("h2").innerHTML = "COMPLETED";
+        document.querySelector("h2").innerHTML = "Completed";
     }
     else {
         document.querySelector("h2").innerHTML = "";
