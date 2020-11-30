@@ -9,8 +9,8 @@ var timeValue = document.querySelector('.timepicker');
 var homeAnchor = document.getElementById('myHome');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
-
-
+const taskVector=document.getElementById('task-vector');
+console.log(taskVector);
 var tasksAnchor = document.getElementById('myTasks');
 var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
@@ -294,9 +294,14 @@ class item {
         }
         if (completedArray.length > 0) {
             document.querySelector("h2").innerHTML = "COMPLETED";
+        
         }
         else {
             document.querySelector("h2").innerHTML = "";
+
+        }
+        if(todos.length>0 ||completedArray.length>0){
+            taskVector.style.display='none';
         }
     }
 

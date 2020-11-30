@@ -177,18 +177,22 @@ input[type=checkbox]{
 } */
 .vector{
     text-align: center;
-    margin-top: 50px;
-    opacity: 0.8;
+   
+    /* opacity: 0.8; */
 }
 .vector img{
-    height: 260px;
-    width: 400px;
+    /* height: 260px; */
+    max-width: 30vw;
+    
 }
 .vector p{
     color: palevioletred;
     font-size: 13px;
     font-weight: bold;
     font-family: 'Grandstander', cursive;
+     width:50%; 
+     margin:0px auto;
+    
 }
 
 .Assignlink{
