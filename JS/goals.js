@@ -5,11 +5,12 @@ var inputValue = document.querySelector('.input');
 
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
+const taskVector = document.getElementById('goals-vector');
 
-function home(){
+function home() {
     isTab = "home";
     window.sessionStorage.setItem("isTab", isTab);
-} function tasks(){
+} function tasks() {
     isTab = "tasks";
     window.sessionStorage.setItem("isTab", isTab);
 }
@@ -47,7 +48,7 @@ class item {
     createItem(name, divContainer) {
         var itemBox = document.createElement('div');
         itemBox.classList.add('item');
-        
+
 
         var input = document.createElement('input');
         input.type = "text";
@@ -59,8 +60,8 @@ class item {
         checkForCompleted.setAttribute("type", "checkbox");
         checkForCompleted.classList.add('checkbox');
 
-        
-       
+
+
 
         // change function to check important
         var arrayName;
@@ -99,14 +100,14 @@ class item {
         document.querySelector("." + `${divContainer}`).appendChild(itemBox);
         itemBox.appendChild(checkForCompleted);
         itemBox.appendChild(input);
-   
+
         itemBox.appendChild(edit);
         itemBox.appendChild(star);
         itemBox.appendChild(remove);
 
     }
 
-    edit(input, name,edit, arrayName) {
+    edit(input, name, edit, arrayName) {
         if (input.disabled == true) {
             input.disabled = !input.disabled;
 
@@ -170,20 +171,27 @@ class item {
             console.log(name);
             goalsTodos.splice(index, 1);
             goalsStarArray.splice(index, 1);
-            
+
             window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
             window.localStorage.setItem("goalsStarArray", JSON.stringify(goalsStarArray));
-           
+
         } else {
             let index = goalsCompletedArray.indexOf(name);
             goalsCompletedArray.splice(index, 1);
-           
+
             window.localStorage.setItem("goalsCompletedArray", JSON.stringify(goalsCompletedArray));
-           
-            if(goalsCompletedArray.length<=0){
-                document.querySelector("h2").innerHTML="";
+
+            if (goalsCompletedArray.length <= 0) {
+                document.querySelector("h2").innerHTML = "";
             }
         }
+        if (goalsTodos.length > 0 || goalsCompletedArray.length > 0) {
+            taskVector.style.display = 'none';
+        }
+        else {
+            taskVector.style.display = 'block';
+        }
+
 
     }
 
@@ -194,9 +202,9 @@ class item {
             this.remove(itemBox, input.value, "goalsTodos");
             new item(input.value, "completed");
             goalsCompletedArray.push(input.value);
-            
+
             window.localStorage.setItem("goalsCompletedArray", JSON.stringify(goalsCompletedArray));
-            
+
             input.style.textDecoration = "line-through";
             itemBox.style.opacity = 0.5;
             // var checkboxes = document.getElementsByClassName("completed");
@@ -209,17 +217,25 @@ class item {
             this.remove(itemBox, input.value, "goalsCompletedArray");
             new item(input.value, "container");
             goalsTodos.push(input.value);
-           
+
             window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
-            
+
         }
-        if(goalsCompletedArray.length>0){
-            document.querySelector("h2").innerHTML="COMPLETED";
+        if (goalsCompletedArray.length > 0) {
+            document.querySelector("h2").innerHTML = "COMPLETED";
         }
-        else{
-            document.querySelector("h2").innerHTML="";
+        else {
+            document.querySelector("h2").innerHTML = "";
         }
+        if (goalsTodos.length > 0 || goalsCompletedArray.length > 0) {
+            taskVector.style.display = 'none';
+        }
+        else {
+            taskVector.style.display = 'block';
+        }
+
     }
+
 }
 
 add.addEventListener('click', check);
@@ -249,33 +265,39 @@ window.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "" ) {
-       showSuccess(inputValue);
+    if (inputValue.value != "") {
+        showSuccess(inputValue);
         new item(inputValue.value, "container");
         goalsTodos.push(inputValue.value);
         goalsStarArray.push(0);
-        
+
         window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));
-       
+
         window.localStorage.setItem("goalsStarArray", JSON.stringify(goalsStarArray));
         inputValue.value = "";
-       
-    }else{
+
+    } else {
         showError(inputValue, "Enter Task");
+    }
+    if (goalsTodos.length > 0 || goalsCompletedArray.length > 0) {
+        taskVector.style.display = 'none';
+    }
+    else {
+        taskVector.style.display = 'block';
     }
 }
 
-function showError(input, msg){
+function showError(input, msg) {
     const formControl = input.parentNode;
-       formControl.className = 'input-group error';
-       const small = formControl.querySelector('small');
-       console.log(formControl.className);
-       small.innerHTML = msg;
+    formControl.className = 'input-group error';
+    const small = formControl.querySelector('small');
+    console.log(formControl.className);
+    small.innerHTML = msg;
 }
-function showSuccess(input){
+function showSuccess(input) {
     const formControl = input.parentNode;
-       formControl.className = `imput-group`;
-       console.log(formControl.className);
+    formControl.className = `imput-group`;
+    console.log(formControl.className);
 }
 
 
@@ -289,11 +311,11 @@ for (var v = 0; v < goalsTodos.length; v++) {
 }
 
 for (var v = 0; v < goalsCompletedArray.length; v++) {
-    if(goalsCompletedArray.length>0){
-        document.querySelector("h2").innerHTML="COMPLETED";
+    if (goalsCompletedArray.length > 0) {
+        document.querySelector("h2").innerHTML = "COMPLETED";
     }
-    else{
-        document.querySelector("h2").innerHTML="";
+    else {
+        document.querySelector("h2").innerHTML = "";
     }
     new item(goalsCompletedArray[v], "completed");
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -16,52 +17,59 @@
     <style>
         ::-webkit-calendar-picker-indicator {
 
-      /* filter: invert(100%) sepia() saturate(10000%) hue-rotate(160deg); */
-      
-      filter: invert(49%) sepia(96%) saturate(2418%) hue-rotate(161deg) brightness(94%) contrast(101%);}
-        .star_rate{
-    pointer-events:none;
-}
-.completed{
-    text-decoration: line-through;
-    opacity:0.5;
-}
-.completed input{
-    text-decoration: line-through;
-}
+            /* filter: invert(100%) sepia() saturate(10000%) hue-rotate(160deg); */
 
-.input-group.error input{  
-    border:2px solid red; 
-}
+            filter: invert(49%) sepia(96%) saturate(2418%) hue-rotate(161deg) brightness(94%) contrast(101%);
+        }
 
-small{
-    visibility: hidden;
-    display:block;
-    margin-top:5px;
-    margin-left:5px;
-}
+        .star_rate {
+            pointer-events: none;
+        }
 
-.error small{
-    color:red;
-   
-   
-    visibility: visible;
-}
-#goals{
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .completed input {
+            text-decoration: line-through;
+        }
+
+        .input-group.error input {
+            border: 2px solid red;
+        }
+
+        small {
+            visibility: hidden;
+            display: block;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .error small {
+            color: red;
+
+
+            visibility: visible;
+        }
+
+        #goals {
             border-left: 10px solid lightgreen;
         }
 
         #goals i {
             color: lightgreen
         }
-/* #calendarIcon{
+
+        /* #calendarIcon{
     color:orange;
 } */
-/* .completed .item .checkbox{
+        /* .completed .item .checkbox{
      
 }   */
     </style>
 </head>
+
 <body>
     <div class="Mynavbar">
         <img src="../images/logo-removebg-preview.png" height="60px" width="90px" alt="logo">
@@ -77,72 +85,74 @@ small{
 
     <!-- ---------Navbar finish----------- -->
     <div class="content">
-    <h1><span class="title">Goals</span> List</h1>
-    <div class="input-div box">
-        <div class="input-group">
-            <input type="text" class="input" placeholder="What Do You Want to Do...">
+        <h1><span class="title">Goals</span> List</h1>
+        <div class="input-div box">
+            <div class="input-group">
+                <input type="text" class="input" placeholder="What Do You Want to Do...">
 
-            <small >Message</small>
-            <!-- <textarea class="form-control input" aria-label="With textarea"
+                <small>Message</small>
+                <!-- <textarea class="form-control input" aria-label="With textarea"
                 placeholder="Write your tasks here........" id="data"></textarea> -->
-        </div>
-        <div class="margin"></div>
-        
-        <!-- <div class="calendar">
+            </div>
+            <div class="margin"></div>
+
+            <!-- <div class="calendar">
             
               <input type="date" value="yyyy-mm-dd" class="datepicker">
             
         </div> -->
-        <!-- <div class="clock">
+            <!-- <div class="clock">
             
             <input type="time" value="hh:mm" class="timepicker">
         </div> -->
-    </div>
-    <div class="button">
-    
-        <button type="button" class="btn btn-primary add">Add</button>
-        <!-- <button type="button" class="btn btn-link cancel">Cancel</button> -->
-    </div>
+        </div>
+        <div class="button">
 
-    <div class="vector" id="goals-vector">
-        <img src="../images/todoimage3.jpg" class="img-fluid" alt="Responsive image">
-        <p>“By recording your dreams and goals on paper, you set in motion the process of becoming the person you most want to be.”</p>
-    </div>
-            
-    <!-- <div class="inputDiv">
+            <button type="button" class="btn btn-primary add">Add</button>
+            <!-- <button type="button" class="btn btn-link cancel">Cancel</button> -->
+        </div>
+
+        <div class="vector" id="goals-vector">
+            <img src="../images/todoimage3.jpg" class="img-fluid" alt="Responsive image">
+            <p>“By recording your dreams and goals on paper, you set in motion the process of becoming the person you
+                most want to be.”</p>
+        </div>
+
+        <!-- <div class="inputDiv">
     	   <input type="text" class="input" placeholder="What Do You Want to Do...">
     	   <button class="add"><i class="fas fa-plus"></i></button>
     </div> -->
 
 
-    <div class="secondTab">
-        
-    <div class="container">
+        <div class="secondTab">
 
-    </div>
+            <div class="container">
 
-
-    <!--  completed -->
-    
-    <h2></h2>
+            </div>
 
 
-    <div class="completed">
-      
+            <!--  completed -->
 
-    </div>
-    <!-- important
+            <h2></h2>
+
+
+            <div class="completed">
+
+
+            </div>
+            <!-- important
     <h2>Important</h2>
     <div class="important">
 
     </div> -->
-</div>
-</div>
-<!-- ------sidebar started------- -->
+        </div>
+    </div>
+    <!-- ------sidebar started------- -->
     <div class="sidebar" id="side">
         <ul>
             <li onclick="home()"><a href="Todo.html" id="home"><i class="fa fa-home"></i><span>Home</span></a></li>
-            <li onclick="tasks()"><a href="Todo.html" id="tasks"><i class="fa fa-check-circle"></i><span>Tasks</span></a></li>
+            <li onclick="tasks()"><a href="Todo.html" id="tasks"><i
+                        class="fa fa-check-circle"></i><span>Tasks</span></a></li>
             <!-- <li><a href="Inbox.html" id="inbox"><i class="fa fa-bell"></i><span>Inbox</span></a></li> -->
             <li><a href="#" id="goals"><i class="fa fa-tasks"></i><span>Goals</span></a></li>
             <li><a href="personal.html" id="personal"><i class="fa fa-user"></i><span>Personal</span></a></li>
@@ -156,4 +166,5 @@ small{
 
     <script src='../JS/goals.js'></script>
 </body>
+
 </html>
