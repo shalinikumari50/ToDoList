@@ -150,7 +150,8 @@ class item {
         if (star.innerHTML === '<i class="material-icons star_rate">star_rate</i>') {
             personalStarArray[index] = 1;
             window.localStorage.setItem("personalStarArray", JSON.stringify(personalStarArray));
-            star.innerHTML = '<i class="material-icons star_rate" style="color:yellow;">star_rate</i>';
+            star.innerHTML = '<i class="material-icons star_rate" style="color:#FFBA00;">star_rate</i>';
+
         }
         else {
             personalStarArray[index] = 0;
@@ -330,7 +331,7 @@ for (var v = 0; v < personalStarArray.length; v++) {
         console.log(abc[v].childNodes[3]);
         var xyz = abc[v].childNodes[3];
 
-        xyz.innerHTML = '<i class="material-icons star_rate" style="color:yellow;">star_rate</i>';
+        xyz.innerHTML = '<i class="material-icons star_rate" style="color:#FFBA00;">star_rate</i>';
     }
 
 }
