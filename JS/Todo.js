@@ -43,7 +43,7 @@ function home() {
     firstTab.style.display = 'block';
     secondTab.style.display = 'none';
 
-    document.title='Home - TODO List';
+    document.title='Home';
 
 
 }
@@ -57,7 +57,7 @@ function tasks() {
     tasksAnchor.style.color = 'lightgreen';
     firstTab.style.display = 'none';
     secondTab.style.display = 'block';
-    document.title='Tasks - TODO List';
+    document.title='Tasks';
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
