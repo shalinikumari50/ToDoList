@@ -41,6 +41,8 @@ function home() {
     firstTab.style.display = 'block';
     secondTab.style.display = 'none';
 
+    document.title='Home - TODO List';
+
 
 }
 function tasks() {
@@ -53,7 +55,7 @@ function tasks() {
     tasksAnchor.style.color = 'lightgreen';
     firstTab.style.display = 'none';
     secondTab.style.display = 'block';
-    console.log("kk");
+    document.title='Tasks - TODO List';
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
