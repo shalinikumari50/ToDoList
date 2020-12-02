@@ -368,6 +368,7 @@ function check() {
         inputValue.value = "";
         dateValue.value = "";
         timeValue.value = "";
+        tasks();
     } else {
         if (inputValue.value === "") {
             showError(inputValue, "input-group", "Enter Task");
