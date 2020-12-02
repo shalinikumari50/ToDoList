@@ -238,7 +238,7 @@ class item {
 }
 
 add.addEventListener('click', check);
-window.addEventListener('keydown', (e) => {
+inputValue.addEventListener('keydown', (e) => {
     if (e.which == 13) {
         check();
     }
