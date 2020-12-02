@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -18,26 +19,33 @@
     <style>
         ::-webkit-calendar-picker-indicator {
 
-      /* filter: invert(100%) sepia() saturate(10000%) hue-rotate(160deg); */
-      
-      filter: invert(49%) sepia(96%) saturate(2418%) hue-rotate(161deg) brightness(94%) contrast(101%);}
-        .star_rate{
-    pointer-events:none;
-}
+            /* filter: invert(100%) sepia() saturate(10000%) hue-rotate(160deg); */
 
-.completed{
-    text-decoration: line-through;
-    opacity:0.5;
-}
-.completed input{
-    text-decoration: line-through;
-}
+            filter: invert(49%) sepia(96%) saturate(2418%) hue-rotate(161deg) brightness(94%) contrast(101%);
+        }
 
-.secondTab{
-    display:none;
-}
+        .star_rate {
+            pointer-events: none;
+        }
 
-/* #tasks:active firstTab{
+        h2{
+            margin-top: 45px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .completed input {
+            text-decoration: line-through;
+        }
+
+        .secondTab {
+            display: none;
+        }
+
+        /* #tasks:active firstTab{
     display:none;
 
 }
@@ -55,53 +63,57 @@
 
 } */
 
-/* #calendarIcon{
+        /* #calendarIcon{
     color:black;
 } */
-/* .completed .item .checkbox{
+        /* .completed .item .checkbox{
      
 }   */
-.input-group.error input{
-    
-    border:2px solid red; 
+        .input-group.error input {
 
-    
-}
-.clock.error input{
-    
-    border:2px solid red; 
-
-    
-}
-.calendar.error input{
-    
-    border:2px solid red; 
-
-    
-}
-small{
-    visibility: hidden;
-    display:block;
-    margin-top:5px;
-    margin-left:5px;
-}
-
-.error small{
-    color:red;
-   
-   
-    visibility: visible;
-}
-.clock{
-    display:inline-block;
-}
-.calendar{
-    display:inline-block;
-}
+            border: 2px solid red;
 
 
+        }
+
+        .clock.error input {
+
+            border: 2px solid red;
+
+
+        }
+
+        .calendar.error input {
+
+            border: 2px solid red;
+
+
+        }
+
+        small {
+            visibility: hidden;
+            display: block;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .error small {
+            color: red;
+
+
+            visibility: visible;
+        }
+
+        .clock {
+            display: inline-block;
+        }
+
+        .calendar {
+            display: inline-block;
+        }
     </style>
 </head>
+
 <body>
     <div class="Mynavbar">
         <img src="../images/logo-removebg-preview.png" height="60px" width="90px" alt="logo">
@@ -117,77 +129,87 @@ small{
 
     <!-- ---------Navbar finish----------- -->
     <div class="content">
-    
-    <div class="firstTab">
-        <h1 class="myTitle">Add Task</h1>
-    <div class="input-div box">
-        <div class="input-group">
-            <input type="text" class="input" placeholder="What Do You Want to Do..." required>
-            <!-- <textarea class="form-control input" aria-label="With textarea"
+
+        <div class="firstTab">
+            <h1 class="myTitle">Add Task</h1>
+            <div class="input-div box">
+                <div class="input-group">
+                    <input type="text" class="input" placeholder="What Do You Want to Do..." required>
+                    <!-- <textarea class="form-control input" aria-label="With textarea"
                 placeholder="Write your tasks here........" id="data"></textarea> -->
-                <small >Message</small>
-            </div>
-       
-        <div class="margin"></div>
-       
-        <div class="calendar">
-            <!-- function myFunction() {
+                    <small>Message</small>
+                </div>
+
+                <div class="margin"></div>
+
+                <div class="calendar">
+                    <!-- function myFunction() {
                 var x = document.createElement("INPUT");
                 x.setAttribute("type", "date");
                 x.setAttribute("value", "2014-02-09");
                 document.body.appendChild(x);
               } -->
-              <input type="date" value="dd-mm-yyyy" class="datepicker" required>
-            <!-- <i class="material-icons event">event</i> -->
-            <small >Enter Date</small>
-        </div>
-        <div class="clock">
-            
-            <input type="time" value="HH:mm" class="timepicker">
-            <small >Enter Time</small>
+                    <input type="date" value="dd-mm-yyyy" class="datepicker" required>
+                    <!-- <i class="material-icons event">event</i> -->
+                    <small>Enter Date</small>
+                </div>
+                <div class="clock">
 
+                    <input type="time" value="HH:mm" class="timepicker">
+                    <small>Enter Time</small>
+
+                </div>
+            </div>
+            <div class="button">
+                <button onclick='tasks()' type="button" class="btn btn-primary add">Add
+
+                </button>
+                <!-- <button type="button" class="btn btn-link cancel">Cancel</button> -->
+
+            </div>
+            <div class="vector">
+                <img src="../images/vector2.jpg" class="img-fluid" alt="Responsive image">
+                <p>Organize Your work with CheckList; start with adding task.</p>
+            </div>
         </div>
-    </div>
-    <div class="button">
-        <button type="button" class="btn btn-primary add">Add</button>
-        <!-- <button type="button" class="btn btn-link cancel">Cancel</button> -->
-        
-    </div>
-    <div class="vector">
-        <img src="../images/vector2.jpg" class="img-fluid" alt="Responsive image">
-        <p>Organize Your work with CheckList; start with adding task.</p>
-    </div>
-</div>
-    <!-- <div class="inputDiv">
+        <!-- <div class="inputDiv">
     	   <input type="text" class="input" placeholder="What Do You Want to Do...">
     	   <button class="add"><i class="fas fa-plus"></i></button>
     </div> -->
-    <div class="secondTab">
-        <h1 class="myTitle">Tasks</h1>
-    <div class="container">
+        <div class="secondTab">
+            <h1 class="myTitle">Tasks</h1>
+            <div class="vector" id="task-vector">
+                <img src="../images/todo image.jpg" class="img-fluid" alt="Responsive image">
+                <p>
+                    “Finish the most important tasks and stop wasting time on irrelevant activities.”
 
-    </div>
 
+                </p>
 
-    <!--  completed -->
+            </div>
+            <div class="indentation">
+
+                <div class="container"></div>
     
-    <h2></h2>
-    <div class="completed">
-      
-
-    </div>
-    <!-- important
+                <!--  completed -->
+    
+                <h2></h2>
+                <div class="completed"></div>
+            </div>
+            
+            <!-- important
     <h2>Important</h2>
     <div class="important">
 
     </div> -->
-</div>
-</div>
-<!-- ------sidebar started------- -->
+        </div>
+    </div>
+    <!-- ------sidebar started------- -->
     <div class="sidebar" id="side">
         <ul>
             <li onclick="home()"><a href="#" id="home"><i class="fa fa-home" id="myHome"></i><span>Home</span></a></li>
-            <li onclick="tasks()"><a href="#" id="tasks"><i class="fa fa-check-circle" id="myTasks"></i><span>Tasks</span></a></li>
+            <li onclick="tasks()"><a href="#" id="tasks"><i class="fa fa-check-circle"
+                        id="myTasks"></i><span>Tasks</span></a></li>
             <!-- <li><a href="Inbox.html" id="inbox"><i class="fa fa-bell"></i><span>Inbox</span></a></li> -->
             <li><a href="goals.html" id="goals"><i class="fa fa-tasks"></i><span>Goals</span></a></li>
             <li><a href="personal.html" id="personal"><i class="fa fa-user"></i><span>Personal</span></a></li>
@@ -201,4 +223,5 @@ small{
 
     <script src='../JS/Todo.js'></script>
 </body>
+
 </html>

@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
 *{
     padding:0;
     margin:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .Mynavbar{
@@ -11,8 +12,7 @@
     background-color:#2f3640;
     position: fixed;
     top:0;
-    
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -41,7 +41,7 @@
     max-width: 70px;
     min-width:75px;
     width:2%;
-    
+    transition: 0.4s;
 }
 #chk:checked ~ .sidebar i{
    display:inline;
@@ -67,9 +67,10 @@
     margin-top:70px;
     float:right;
     transition:0.7s;
+    font-family: 'Sansita Swashed', cursive;
 }
 .content h1{
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 
@@ -87,7 +88,7 @@
     position:fixed;
     top:50px;
     background-color:#353b48;
-    transition:0.7s;
+    transition:0.5s;
 }
 
 .sidebar ul li{
@@ -136,27 +137,27 @@ a i{
     }
     .sidebar i{
         display:inline;
+       
     }
     .sidebar span{
         display:none;
     }
-    .sidebar:hover span{
+    /* .sidebar:hover span{
         display: inline;
        
-    }
-    .sidebar:hover{
-       
+    } */
+    /* .sidebar:hover{ 
         min-width: 200px;
-        
-        
-    
-    }
+    } */
     #chk:checked ~ .sidebar{
-        min-width: 200px;
+        min-width: 100vw;
         left:0;
+        text-align: center;
+        
     }
     #chk:checked ~ .sidebar span{
         display:inline;
+    
     }
 
     #chk:checked ~ .show-btn{
@@ -166,12 +167,13 @@ a i{
         opacity:0;
     }
     #chk:checked ~ .content{
-        width:80%;
+        width:75%;
         margin-top:70px;
      }
      
      .content{
-         width: 79%;
+        
+         width: 75%;
          margin-top:70px;
          float:right;
          transition:0.7s;

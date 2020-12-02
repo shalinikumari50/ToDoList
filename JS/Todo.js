@@ -9,18 +9,19 @@ var timeValue = document.querySelector('.timepicker');
 var homeAnchor = document.getElementById('myHome');
 const add = document.querySelector('.add');
 const completed = document.querySelector('.completed');
-
-
+const taskVector = document.getElementById('task-vector');
 var tasksAnchor = document.getElementById('myTasks');
 var isTab = "home";
 // window.localStorage.setItem("isTab", isTab);
+
+
 if (window.sessionStorage.getItem("isTab") === "home") {
 
     home();
 } else if (window.sessionStorage.getItem("isTab") === "tasks") {
     tasks();
 
-}else{
+} else {
     homeAnchor.style.color = 'lightgreen';
     tasksAnchor.style.color = 'white';
     document.getElementById('tasks').style.borderLeft = 'none';
@@ -30,9 +31,9 @@ function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
     isTab = "home";
     window.sessionStorage.setItem("isTab", isTab);
-    
+
     console.log(homeAnchor);
-   
+
     homeAnchor.style.color = 'lightgreen';
     document.getElementById('home').style.borderLeft = '10px solid lightgreen';
     document.getElementById('tasks').style.borderLeft = 'none';
@@ -100,6 +101,9 @@ class item {
         this.createItem(name, dateTimeValue, divContainer);
     }
     createItem(name, dateTimeValue, divContainer) {
+
+        // taskVector.style.display = 'none';
+
 
         var itemBox = document.createElement('div');
         itemBox.classList.add('item');
@@ -249,6 +253,7 @@ class item {
             window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         } else {
             let index = completedArray.indexOf(name);
+
             completedArray.splice(index, 1);
             completeDateTime.splice(index, 1);
             window.localStorage.setItem("completedArray", JSON.stringify(completedArray));
@@ -256,11 +261,19 @@ class item {
             if (completedArray.length <= 0) {
                 document.querySelector("h2").innerHTML = "";
             }
+
+        }
+        if (todos.length > 0 || completedArray.length > 0) {
+            taskVector.style.display = 'none';
+        }
+        else {
+            taskVector.style.display = 'block';
         }
 
     }
 
     complete(checkForCompleted, dateTimeValue, dueDate, itemBox, input, arrayName) {
+
 
 
         if (checkForCompleted.checked) {
@@ -281,6 +294,7 @@ class item {
             // checkboxes.checked=true;
 
 
+
         } else {
             input.style.textDecoration = "none";
             dueDate.querySelector("span").style.textDecoration = "none";
@@ -293,12 +307,22 @@ class item {
             window.localStorage.setItem("dateTime", JSON.stringify(dateTime));
         }
         if (completedArray.length > 0) {
-            document.querySelector("h2").innerHTML = "COMPLETED";
+            document.querySelector("h2").innerHTML = "Completed";
+
         }
         else {
             document.querySelector("h2").innerHTML = "";
+
+        }
+
+        if (todos.length > 0 || completedArray.length > 0) {
+            taskVector.style.display = 'none';
+        }
+        else {
+            taskVector.style.display = 'block';
         }
     }
+
 
 }
 
@@ -308,10 +332,6 @@ inputValue.addEventListener('keydown', (e) => {
         check();
     }
 })
-
-
-
-
 
 // function check(){
 // 	if(inputValue.value != ""){
@@ -368,6 +388,12 @@ function check() {
 
 
     }
+    if (todos.length > 0 || completedArray.length > 0) {
+        taskVector.style.display = 'none';
+    }
+    else {
+        taskVector.style.display = 'block';
+    }
 }
 
 function showError(input, className, msg) {
@@ -384,6 +410,13 @@ function showSuccess(input, className) {
 }
 
 
+if (todos.length > 0 || completedArray.length > 0) {
+    taskVector.style.display = 'none';
+}
+else {
+    taskVector.style.display = 'block';
+}
+
 for (var v = 0; v < todos.length; v++) {
     new item(todos[v], dateTime[v], "container");
 
@@ -395,7 +428,7 @@ for (var v = 0; v < todos.length; v++) {
 
 for (var v = 0; v < completedArray.length; v++) {
     if (completedArray.length > 0) {
-        document.querySelector("h2").innerHTML = "COMPLETED";
+        document.querySelector("h2").innerHTML = "Completed";
     }
     else {
         document.querySelector("h2").innerHTML = "";
