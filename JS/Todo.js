@@ -29,6 +29,7 @@ if (window.sessionStorage.getItem("isTab") === "home") {
 }
 function home() {
     // document.querySelector('h1').innerHTML = 'Add Task';
+  
     isTab = "home";
     window.sessionStorage.setItem("isTab", isTab);
 
@@ -53,11 +54,36 @@ function tasks() {
     window.sessionStorage.setItem("isTab", isTab);
     document.getElementById('tasks').style.borderLeft = '10px solid lightgreen';
     document.getElementById('home').style.borderLeft = 'none';
+  
     homeAnchor.style.color = 'white';
     tasksAnchor.style.color = 'lightgreen';
     firstTab.style.display = 'none';
     secondTab.style.display = 'block';
     document.title='Tasks';
+}
+function whiteBorderHome(){
+    if(document.getElementById('home').style.borderLeft === 'none'){
+        document.getElementById('home').style.borderLeft = '10px solid white';
+    }
+        
+    
+}
+function whiteBorderTask(){
+   
+    if(document.getElementById('tasks').style.borderLeft === 'none'){
+        document.getElementById('tasks').style.borderLeft = '10px solid white';
+    }
+
+}
+function removeWhiteBorderHome(){
+    if(document.getElementById('home').style.borderLeft === '10px solid white'){
+        document.getElementById('home').style.borderLeft = 'none';
+    }
+}
+function removeWhiteBorderTask(){
+    if(document.getElementById('tasks').style.borderLeft === '10px solid white'){
+        document.getElementById('tasks').style.borderLeft = 'none';
+    }
 }
 if (window.localStorage.getItem("todos") == undefined) {
     var todos = [];
