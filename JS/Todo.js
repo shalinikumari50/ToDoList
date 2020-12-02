@@ -32,7 +32,9 @@ function home() {
     isTab = "home";
     window.sessionStorage.setItem("isTab", isTab);
 
-    console.log(homeAnchor);
+    showSuccess(inputValue, "input-group");
+    showSuccess(dateValue, "calendar");
+    showSuccess(timeValue, "clock");
 
     homeAnchor.style.color = 'lightgreen';
     document.getElementById('home').style.borderLeft = '10px solid lightgreen';
