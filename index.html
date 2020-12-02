@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../images/logoIcon-removebg-preview.png"  type="image/icon type">
+    <link rel="icon" href="images/logoIcon-removebg-preview.png"  type="image/icon type">
     <title>Home Page</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -14,8 +14,11 @@
 
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
             height: 800px;
+            background-image: url('images/background-1409025.png');
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         * {
@@ -31,7 +34,7 @@
 
         .uppersection {
             /* background-color:#36454F; */
-            background-image: linear-gradient(to right, lightgrey, grey);
+            background-image: linear-gradient(to right, #054483, #dda285);
             height: 80px;
             width: 100%;
             position: fixed;
@@ -88,7 +91,7 @@
             flex-direction: row;
             margin-left: 40px;
             padding-top: 30px;
-            color: black;
+            color: white;
             font-size: 18px;
             text-align: justify;
             display: flex;
@@ -98,7 +101,7 @@
         h1 {
             padding-top: 130px;
             font-weight: bold;
-            color: black;
+            color: lightcyan;
         }
 
         main .left {
@@ -109,6 +112,8 @@
         main .vector {
             max-width: 50vw;
             max-height: 50vh;
+            min-width: 22vw;
+            min-height: 20vh;
             margin-top: 130px;
             /* margin-left: 10px; */
             float: right;
@@ -116,7 +121,7 @@
 
         #button {
             box-shadow: 2px 4px 4px rgba(128, 128, 128, 0.438);
-            margin-top: 20px;
+            margin-top: 30px;
             border-radius: 15px;
             border: none;
             outline: none;
@@ -133,8 +138,11 @@
 
 
         #button:hover {
-            background-color: rgb(37, 143, 209);
+            background-color: lightblue;
+            color: rgb(1, 1, 110);
             transition: 0.3s;
+            width: 160px;
+            height: 65px;
         }
 
         .footer {
@@ -143,7 +151,7 @@
             position: fixed;
             bottom: 0px;
             /* background-color: #36454F; */
-            background-image: linear-gradient(to right, lightgrey, grey);
+            background-image: linear-gradient(to right, #054483, #dda285);
 
         }
 
@@ -169,7 +177,7 @@
 
         @media(max-width: 870px) {
             body {
-                height: 1200px;
+                height: 1050px;
             }
 
             .middlesection {
@@ -178,7 +186,7 @@
                 flex-direction: column;
                 margin-left: 40px;
                 padding-top: 30px;
-                color: black;
+                color:white;
                 font-size: 18px;
                 text-align: center;
             }
@@ -223,11 +231,11 @@
                 </p>
 
 
-                <button id="button">
-                    <a href="p/Todo.html">Get Started </a></button>
+                
+                    <a href="p/Todo.html"><button id="button">Get Started</button></a>
 
             </div>
-            <img src="images/vector1.jpg" alt="vector" class="vector">
+            <img src="images/todo_image5-removebg-preview.png" alt="vector" class="vector">
         </main>
         <footer class="footer">
             <ul class="footerlist">
