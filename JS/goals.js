@@ -265,10 +265,10 @@ inputValue.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "") {
+    if (inputValue.value.trim() != "") {
         showSuccess(inputValue);
-        new item(inputValue.value, "container");
-        goalsTodos.push(inputValue.value);
+        new item(inputValue.value.trim(), "container");
+        goalsTodos.push(inputValue.value.trim());
         goalsStarArray.push(0);
 
         window.localStorage.setItem("goalsTodos", JSON.stringify(goalsTodos));

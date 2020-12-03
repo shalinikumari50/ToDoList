@@ -381,13 +381,13 @@ inputValue.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "" && dateValue.value != "" && timeValue.value != "") {
+    if (inputValue.value.trim() != "" && dateValue.value.trim() != "" && timeValue.value.trim() != "") {
         showSuccess(inputValue, "input-group");
         showSuccess(dateValue, "calendar");
         showSuccess(timeValue, "clock");
         var dateTimeValue = dateValue.value + " " + timeValue.value;
-        new item(inputValue.value, dateTimeValue, "container");
-        todos.push(inputValue.value);
+        new item(inputValue.value.trim(), dateTimeValue, "container");
+        todos.push(inputValue.value.trim());
         dateTime.push(dateTimeValue);
         starArray.push(0);
         window.localStorage.setItem("todos", JSON.stringify(todos));
@@ -398,19 +398,19 @@ function check() {
         timeValue.value = "";
         tasks();
     } else {
-        if (inputValue.value === "") {
+        if (inputValue.value.trim() === "") {
             showError(inputValue, "input-group", "Enter Task");
         }
         else {
             showSuccess(inputValue, "input-group");
         }
-        if (dateValue.value === "") {
+        if (dateValue.value.trim() === "") {
             showError(dateValue, "calendar", "Enter date");
         }
         else {
             showSuccess(dateValue, "calendar");
         }
-        if (timeValue.value === "") {
+        if (timeValue.value.trim() === "") {
             showError(timeValue, "clock", "Enter time");
         }
         else {

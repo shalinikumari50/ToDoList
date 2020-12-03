@@ -264,10 +264,10 @@ inputValue.addEventListener('keydown', (e) => {
 // }
 
 function check() {
-    if (inputValue.value != "") {
+    if (inputValue.value.trim() != "") {
         showSuccess(inputValue);
-        new item(inputValue.value, "container");
-        personalTodos.push(inputValue.value);
+        new item(inputValue.value.trim(), "container");
+        personalTodos.push(inputValue.value.trim());
         personalStarArray.push(0);
         window.localStorage.setItem("personalTodos", JSON.stringify(personalTodos));
         window.localStorage.setItem("personalStarArray", JSON.stringify(personalStarArray));
