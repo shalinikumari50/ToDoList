@@ -10,20 +10,24 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 
 ## 2) Screenshots
 ### Landing Page
-<img src="Screenshot/1.png">.
+<img src="Screenshot/1.png">
+
 ### Home Page
-<img src="Screenshot/2.png">.
+<img src="Screenshot/2.png">
+
 ### Tasks Page
-<img src="Screenshot/3.png">.
+<img src="Screenshot/3.png">
+
 ### Goals Page
-<img src="Screenshot/4.png">.
+<img src="Screenshot/4.png">
+
 ### Personal Page
-<img src="Screenshot/5.png">.
+<img src="Screenshot/5.png">
 
 
 ## 3) Work Distribution:
 ### Shalini kumari:- 	
-* Sidebar and navbar .
+* Sidebar and navbar.
 * Completed Task List-To show completed task as ticked at any point of time.
 * Task addition-A page to add any task with date and time to his/her TO-DO List.
 
