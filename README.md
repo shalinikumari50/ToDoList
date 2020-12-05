@@ -7,8 +7,7 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 * A To-do List helps us to work hard and achieve our goals of the day.
 
 ## 2) Screenshots
-LLogo: ![Alt](/wp.png "Title")
-![Image of Yaktocat]
+<img src="Screenshots/1.png">
 
 
 
