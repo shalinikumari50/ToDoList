@@ -9,15 +9,19 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 
 
 ## 2) Screenshots
-### * Landing Page
+### Landing Page
 <img src="Screenshot/1.png">
-### * Home Page
+
+### Home Page
 <img src="Screenshot/2.png">
-### * Tasks Page
+
+### Tasks Page
 <img src="Screenshot/3.png">
-### * Goals Page
+
+### Goals Page
 <img src="Screenshot/4.png">
-### * Personal Page
+
+### Personal Page
 <img src="Screenshot/5.png">
 
 
