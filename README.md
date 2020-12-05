@@ -7,7 +7,11 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 * A To-do List helps us to work hard and achieve our goals of the day.
 
 ## 2) Screenshots
-<img src="Screenshots/1.png">
+<img src="Screenshot/1.png">
+<img src="Screenshot/2.png">
+<img src="Screenshot/3.png">
+<img src="Screenshot/4.png">
+<img src="Screenshot/5.png">
 
 
 
