@@ -3,10 +3,10 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 
 ## 1) Objectives:
 * A lot of things are going in our lives, the pandemic situation makes us anxious and we tend to forget our tasks. 
-* Having them written at a place makes us sure that nothing gets missed. 
+* Having them written at a place makes us sure that nothing gets missed. 
 * A To-do List helps us to work hard and achieve our goals of the day.
 
-## 2)-Screenshots
+## 2) Screenshots
 LLogo: ![Alt](/wp.png "Title")
 ![Image of Yaktocat]
 
@@ -14,7 +14,7 @@ LLogo: ![Alt](/wp.png "Title")
 
 
 
-## 3)Work Distribution:
+## 3) Work Distribution:
 ### Shalini kumari:- 	
 * Sidebar and navbar .
 * Completed Task List-To show completed task as ticked at any point of time.
