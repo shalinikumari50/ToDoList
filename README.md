@@ -13,7 +13,7 @@ Maintained by Shashank Agrawal,Shalini kumari,Vanshika Agrawal.
 <img src="Screenshot/1.png">
 #### Home Page
 <img src="Screenshot/2.png">
-#### TAsks Page
+#### Tasks Page
 <img src="Screenshot/3.png">
 #### Goals Page
 <img src="Screenshot/4.png">
